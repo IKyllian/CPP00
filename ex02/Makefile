@@ -1,16 +1,18 @@
-NAME = megaphone
+NAME = account
 
-SRCS = megaphone.cpp
+HEADER = Account.hpp
+SRCS = Account.cpp \
+		tests.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 CLANG = clang++
 FLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
-%.o : %.cpp
+%.o : %.cpp $(HEADER)
 	$(CLANG) $(FLAGS) -c $< -o $@
 
-$(NAME) : $(OBJS)
+$(NAME) : $(OBJS) $(HEADER)
 	$(CLANG) $(FLAGS) -o $(NAME) $(OBJS)
 
 all : $(NAME)

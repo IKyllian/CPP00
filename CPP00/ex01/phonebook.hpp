@@ -9,9 +9,10 @@ class Contact
 {	
 	public :
 	Contact();
-	void	add_contact(Contact *phoneBook);
-	void	print_contact(Contact phoneBook[]);
-	int		print_user(Contact user);
+	~Contact();
+	void	add_contact();
+	void	print_info_user(int i);
+	int		print_user();
 
 	private :
 	int is_create;

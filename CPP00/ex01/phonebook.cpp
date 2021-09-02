@@ -28,21 +28,20 @@ int		ft_atoi(std::string str)
 	return (nbr);
 }
 
-
-void Contact::add_contact(Contact *phoneBook)
+void Contact::add_contact()
 {
 	std::cout << "First Name : ";
-	std::cin >> phoneBook->first_name;
+	std::cin >> first_name;
 	std::cout << "Last Name : ";
-	std::cin >> phoneBook->last_name;
+	std::cin >> last_name;
 	std::cout << "Nickname : ";
-	std::cin >> phoneBook->nickname;
+	std::cin >> nickname;
 	std::cout << "Phone Number : ";
-	std::cin >> phoneBook->phone_number;
+	std::cin >> phone_number;
 	std::cout << "Darkest Secret : ";
-	std::cin >> phoneBook->darkest_secret;
+	std::cin >> darkest_secret;
 	std::cout << std::endl;
-	phoneBook->is_create = 1;
+	is_create = 1;
 }
 
 void	print_collumn(void)
@@ -59,7 +58,26 @@ void	print_collumn(void)
 	std::cout << std::endl;
 }
 
-void Contact::print_contact(Contact phoneBook[])
+void Contact::print_info_user(int i)
+{
+	if (is_create)
+	{
+		std::cout << i;
+		std::cout << std::setw(9);
+		std::cout << "|";
+		std::cout << first_name;
+		std::cout << std::setw(10 - ft_strlen(first_name) + 1);
+		std::cout << "|";
+		std::cout << last_name;
+		std::cout << std::setw(10 - ft_strlen(last_name));
+		std::cout << "|";
+		std::cout << nickname;
+		// std::cout << std::setw(10 - ft_strlen(phoneBook[i].nickname) + 1);
+		std::cout << std::endl;
+	}
+}
+
+void print_contacts(Contact phoneBook[])
 {
 	int i;
 
@@ -67,21 +85,7 @@ void Contact::print_contact(Contact phoneBook[])
 	print_collumn();
 	while (i < 8)
 	{
-		if (phoneBook[i].is_create)
-		{
-			std::cout << i;
-			std::cout << std::setw(9);
-			std::cout << "|";
-			std::cout << phoneBook[i].first_name;
-			std::cout << std::setw(10 - ft_strlen(phoneBook[i].first_name) + 1);
-			std::cout << "|";
-			std::cout << phoneBook[i].last_name;
-			std::cout << std::setw(10 - ft_strlen(phoneBook[i].last_name));
-			std::cout << "|";
-			std::cout << phoneBook[i].nickname;
-			// std::cout << std::setw(10 - ft_strlen(phoneBook[i].nickname) + 1);
-			std::cout << std::endl;
-		}
+		phoneBook[i].print_info_user(i);
 		i++;
 	}
 }
@@ -91,20 +95,25 @@ Contact::Contact() : is_create(0)
 
 }
 
-int	Contact::print_user(Contact user)
+Contact::~Contact()
 {
-	if (!user.is_create)
+
+}
+
+int	Contact::print_user()
+{
+	if (!is_create)
 	{
 		std::cout << "Le contact n'existe pas" << std::endl;
 		return (1);
 	}
 	else
 	{
-		std::cout << "First Name : " + user.first_name << std::endl;
-		std::cout << "Last Name : " + user.last_name << std::endl;
-		std::cout << "Nickname : " + user.nickname << std::endl;
-		std::cout << "Phone Number : " + user.phone_number << std::endl;
-		std::cout << "Darkest Secret : " + user.darkest_secret << std::endl;
+		std::cout << "First Name : " + first_name << std::endl;
+		std::cout << "Last Name : " + last_name << std::endl;
+		std::cout << "Nickname : " + nickname << std::endl;
+		std::cout << "Phone Number : " + phone_number << std::endl;
+		std::cout << "Darkest Secret : " + darkest_secret << std::endl;
 		return (0);
 	}
 }
@@ -130,7 +139,7 @@ int	main(void)
 				if (response == "o")
 				{
 					std::cout << "Voici la liste des contacts" << std::endl;
-					phoneBook->print_contact(phoneBook);
+					print_contacts(phoneBook);
 					while (nb >= 8)
 					{
 						std::cout << "Lequel voulez-vous remplacé ? (id)" << std::endl;
@@ -141,12 +150,12 @@ int	main(void)
 						else if (nb == -1)
 							std::cout << "Nombre invalide" << std::endl;
 					}
-					phoneBook->add_contact(&phoneBook[nb]);
+					phoneBook[nb].add_contact();
 				}
 			}
 			else
 			{
-				phoneBook->add_contact(&phoneBook[index]);
+				phoneBook[index].add_contact();
 				index++;
 			}
 		}
@@ -154,7 +163,7 @@ int	main(void)
 		{
 			if (index > 0)
 			{
-				phoneBook->print_contact(phoneBook);
+				print_contacts(phoneBook);
 				while (1)
 				{
 					std::cout << "\nSaisissez l'index d'un contact pour voir ses informations : ";
@@ -166,7 +175,7 @@ int	main(void)
 						std::cout << "Nombre invalide" << std::endl;
 					else
 					{
-						if (phoneBook->print_user(phoneBook[nb]) == 0)
+						if (phoneBook[nb].print_user() == 0)
 							break ;
 					}
 				}

@@ -1,9 +1,12 @@
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+#define FORM_HPP
 
 #include <iostream>
+#include "Bureaucrat.hpp"
 
-class Bureaucrat
+class Bureaucrat ;
+
+class Form
 {
 	public :
 
@@ -33,28 +36,29 @@ class Bureaucrat
 			virtual const char* what() const throw();
 		};
 
-	Bureaucrat();
-	Bureaucrat(const Bureaucrat &src);
-	Bureaucrat(std::string name, int grade);
+		Form();
+		Form(const Form &form);
+		Form(std::string name, int sign_grade, int exec_grade);
+		~Form() {};
 
-	~Bureaucrat() {};
+		Form &operator=(const Form &f);
 
-	Bureaucrat &operator=(const Bureaucrat &b);
+		std::string getName(void) const;
+		bool		getSigned(void) const;
+		int 		getSignGrade(void) const;
+		int			getExecGrade(void) const;
 
-	void grade_increment();
-	void grade_decrement();
-
-	const std::string getName(void) const;
-	int getGrade(void) const;
+		void beSigned(Bureaucrat &bureaucrat);
 
 
 	private :
 
-	std::string	_name;
-	int			_grade;
+		std::string _name;
+		bool 		_signed;
+		int			_sign_grade;
+		int			_exec_grade;
 };
 
-std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
-
+std::ostream &operator<<(std::ostream &os, const Form &form);
 
 #endif

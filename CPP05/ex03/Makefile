@@ -1,9 +1,20 @@
 NAME = bureaucrat
 
-HEADER = Bureaucrat.hpp
+HEADER = Bureaucrat.hpp \
+		 Form.hpp \
+		 ShrubberyCreationForm.hpp \
+		 RobotomyRequestForm.hpp \
+		 PresidentialPardonForm.hpp \
+		 Intern.hpp
 
 SRCS =	main.cpp \
-		Bureaucrat.cpp
+		Bureaucrat.cpp \
+		Form.cpp \
+		ShrubberyCreationForm.cpp \
+		RobotomyRequestForm.cpp \
+		PresidentialPardonForm.cpp \
+		Intern.cpp
+		
 OBJS = $(SRCS:.cpp=.o)
 
 CLANG = clang++

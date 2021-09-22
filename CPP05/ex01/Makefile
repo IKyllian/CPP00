@@ -1,9 +1,11 @@
 NAME = bureaucrat
 
-HEADER = Bureaucrat.hpp
+HEADER = Bureaucrat.hpp \
+		 Form.hpp
 
 SRCS =	main.cpp \
-		Bureaucrat.cpp
+		Bureaucrat.cpp \
+		Form.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 CLANG = clang++

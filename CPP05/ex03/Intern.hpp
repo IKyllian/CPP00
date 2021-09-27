@@ -10,7 +10,7 @@
 class Intern
 {
 	public :
-	
+
 		Intern() {};
 		Intern(const Intern &src);
 

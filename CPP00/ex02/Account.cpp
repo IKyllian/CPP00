@@ -105,4 +105,3 @@ void Account::displayStatus(void) const
 	std::cout << "deposits:" << _nbDeposits << ";";
 	std::cout << "withdrawals:" << _nbWithdrawals << std::endl;
 }
-

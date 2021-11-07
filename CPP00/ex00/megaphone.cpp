@@ -4,25 +4,16 @@ char ft_toupper(char c)
 {
 	if (c >= 97 && c <= 122)
 		return (c - 32);
-	else
-		return (c);
+	return (c);
 }
 
 int main(int argc, char **argv)
 {
 	if (argc > 1)
 	{
-		int i;
-		int j;
-
-		i = 1;
-		while (i < argc)
-		{
-			j = 0;
-			while (argv[i][j])
+		for (int i = 1; i < argc; i++)
+			for (int j = 0; argv[i][j]; j++)
 				std::cout << ft_toupper(argv[i][j++]);
-			i++;
-		}
 		std::cout << std::endl;
 	}
 	else

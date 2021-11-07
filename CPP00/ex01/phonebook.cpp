@@ -134,15 +134,15 @@ int	main(void)
 		{
 			if (index >= 8)
 			{
-				std::cout << "Le phoneBook ne peut contenir que 8 contacts maximum.\n Voulez vous en remplacé un ? (o/n)" << std::endl;
+				std::cout << "Le phoneBook ne peut contenir que 8 contacts maximum.\n Voulez-vous en remplacé un ? (y/n)" << std::endl;
 				std::cin >> response;
-				if (response == "o")
+				if (response == "y")
 				{
 					std::cout << "Voici la liste des contacts" << std::endl;
 					print_contacts(phoneBook);
 					while (nb >= 8)
 					{
-						std::cout << "Lequel voulez-vous remplacé ? (id)" << std::endl;
+						std::cout << "Lequel voulez-vous remplacé ? (indiquez le user id)" << std::endl;
 						std::cin >> response;
 						nb = ft_atoi(response);
 						if (nb >= 8)

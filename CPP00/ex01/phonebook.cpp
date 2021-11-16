@@ -21,7 +21,7 @@ int		ft_atoi(std::string str)
 		i++;
 	while (str[i])
 	{
-		if (str[i] < 48 && str[i] > 57)
+		if (str[i] < 48 || str[i] > 57)
 			return (-1);
 		nbr = nbr * 10 + (str[i++] - 48);
 	}	
@@ -58,6 +58,20 @@ void	print_collumn(void)
 	std::cout << std::endl;
 }
 
+std::string trunc_string(std::string to_trunc)
+{
+	std::string str;
+
+	if (to_trunc.size() > 10)
+	{
+		str = to_trunc;
+		str.resize(10);
+		str.at(9) = '.';
+		return (str);
+	}
+	return (to_trunc);
+}
+
 void Contact::print_info_user(int i)
 {
 	if (is_create)
@@ -65,14 +79,13 @@ void Contact::print_info_user(int i)
 		std::cout << i;
 		std::cout << std::setw(9);
 		std::cout << "|";
-		std::cout << first_name;
+		std::cout << trunc_string(first_name);
 		std::cout << std::setw(10 - ft_strlen(first_name) + 1);
 		std::cout << "|";
-		std::cout << last_name;
-		std::cout << std::setw(10 - ft_strlen(last_name));
+		std::cout << trunc_string(last_name);
+		std::cout << std::setw(10 - ft_strlen(last_name) + 1);
 		std::cout << "|";
-		std::cout << nickname;
-		// std::cout << std::setw(10 - ft_strlen(phoneBook[i].nickname) + 1);
+		std::cout << trunc_string(nickname);
 		std::cout << std::endl;
 	}
 }
@@ -88,6 +101,7 @@ void print_contacts(Contact phoneBook[])
 		phoneBook[i].print_info_user(i);
 		i++;
 	}
+	std::cout << std::endl;
 }
 
 Contact::Contact() : is_create(0)
@@ -114,6 +128,7 @@ int	Contact::print_user()
 		std::cout << "Nickname : " + nickname << std::endl;
 		std::cout << "Phone Number : " + phone_number << std::endl;
 		std::cout << "Darkest Secret : " + darkest_secret << std::endl;
+		std::cout << std::endl;
 		return (0);
 	}
 }
@@ -140,7 +155,8 @@ int	main(void)
 				{
 					std::cout << "Voici la liste des contacts" << std::endl;
 					print_contacts(phoneBook);
-					while (nb >= 8)
+					nb = 8;
+					while (nb >= 8 || nb < 0)
 					{
 						std::cout << "Lequel voulez-vous remplacé ? (indiquez le user id)" << std::endl;
 						std::cin >> response;
@@ -184,6 +200,5 @@ int	main(void)
 				std::cout << "Aucun contact disponible" << std::endl;
 		}
 	}
-	
 	return (0);
 }

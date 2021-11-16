@@ -10,6 +10,7 @@ int	Account::_totalNbWithdrawals = 0;
 Account::Account(int initial_deposit)
 {
 	_accountIndex = _nbAccounts;
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";";
 	_amount = initial_deposit;
 	_nbDeposits = 0;
@@ -23,6 +24,7 @@ Account::Account(int initial_deposit)
 Account::Account()
 {
 	_accountIndex = _nbAccounts;
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";";
 	_amount = 0;
 	std::cout << "amount:" << _amount << ";";
@@ -34,6 +36,7 @@ Account::Account()
 
 Account::~Account(void)
 {
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "amount:" << _amount << ";";
 	std::cout << "closed" << std::endl;
@@ -59,8 +62,33 @@ int Account::getNbWithdrawals(void)
 	return (_totalNbWithdrawals);
 }
 
+void	Account::_displayTimestamp( void )
+{
+	time_t	now;
+	tm		*ltm;
+
+	now = time(0);
+	ltm = localtime(&now);
+	std::cout << '['
+		<< ltm->tm_year + 1900
+		<< std::setw(2) << std::setfill('0')
+		<< ltm->tm_mon + 1
+		<< std::setw(2) << std::setfill('0')
+		<< ltm->tm_mday
+		<< '_'
+		<< std::setw(2) << std::setfill('0')
+		<< ltm->tm_hour
+		<< std::setw(2) << std::setfill('0')
+		<< ltm->tm_min
+		<< std::setw(2) << std::setfill('0')
+		<< ltm->tm_sec
+		<< "] ";
+}
+
+
 void Account::displayAccountsInfos(void)
 {
+	_displayTimestamp();
 	std::cout << "accounts:" << _nbAccounts << ";";
 	std::cout << "total:" << _totalAmount << ";";
 	std::cout << "deposits:" << _totalNbDeposits << ";";
@@ -69,6 +97,7 @@ void Account::displayAccountsInfos(void)
 
 void Account::makeDeposit(int deposit)
 {
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "p_amount:" << _amount << ";";
 	std::cout << "deposit:" << deposit << ";";
@@ -82,6 +111,7 @@ void Account::makeDeposit(int deposit)
 
 bool Account::makeWithdrawal(int withdrawal)
 {
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "p_amount:" << _amount << ";";
 	if (withdrawal > _amount)
@@ -100,6 +130,7 @@ bool Account::makeWithdrawal(int withdrawal)
 
 void Account::displayStatus(void) const
 {
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "amount:" << _amount << ";";
 	std::cout << "deposits:" << _nbDeposits << ";";

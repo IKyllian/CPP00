@@ -2,8 +2,8 @@
 
 Zombie::Zombie(std::string name)
 {
-	Zombie *zombie = this->newZombie(name);
-	
+	this->name = name;
+	this->announce();
 }
 
 Zombie::~Zombie()

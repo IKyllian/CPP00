@@ -1,15 +1,5 @@
 #include "phonebook.hpp"
 
-int	ft_strlen(std::string str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
 int		ft_atoi(std::string str)
 {
 	int		i;
@@ -40,21 +30,20 @@ void Contact::add_contact()
 	std::cin >> phone_number;
 	std::cout << "Darkest Secret : ";
 	std::cin >> darkest_secret;
-	std::cout << std::endl;
+	std::cout << "Contact Crée" << std::endl;
 	is_create = 1;
 }
 
 void	print_collumn(void)
 {
+	std::cout << std::setw(10);
 	std::cout << "Index";
-	std::cout << std::setw(5);
 	std::cout << "|";
 	std::cout << "First Name";
 	std::cout << "|";
-	std::cout << "Last Name";
-	std::cout << std::setw(1);
+	std::cout << " Last Name";
 	std::cout << "|";
-	std::cout << "Nickname";
+	std::cout << "  Nickname";
 	std::cout << std::endl;
 }
 
@@ -76,15 +65,16 @@ void Contact::print_info_user(int i)
 {
 	if (is_create)
 	{
+		std::cout << std::setw(10);
 		std::cout << i;
-		std::cout << std::setw(9);
 		std::cout << "|";
+		std::cout << std::setw(10);
 		std::cout << trunc_string(first_name);
-		std::cout << std::setw(10 - ft_strlen(first_name) + 1);
 		std::cout << "|";
+		std::cout << std::setw(10);
 		std::cout << trunc_string(last_name);
-		std::cout << std::setw(10 - ft_strlen(last_name) + 1);
 		std::cout << "|";
+		std::cout << std::setw(10);
 		std::cout << trunc_string(nickname);
 		std::cout << std::endl;
 	}
@@ -92,15 +82,9 @@ void Contact::print_info_user(int i)
 
 void print_contacts(Contact phoneBook[])
 {
-	int i;
-
-	i = 0;
 	print_collumn();
-	while (i < 8)
-	{
+	for(int i = 0; i < 8; i++)
 		phoneBook[i].print_info_user(i);
-		i++;
-	}
 	std::cout << std::endl;
 }
 

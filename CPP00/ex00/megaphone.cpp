@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 	{
 		for (int i = 1; i < argc; i++)
 			for (int j = 0; argv[i][j]; j++)
-				std::cout << ft_toupper(argv[i][j++]);
+				std::cout << ft_toupper(argv[i][j]);
 		std::cout << std::endl;
 	}
 	else

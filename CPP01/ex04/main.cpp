@@ -1,13 +1,16 @@
 #include <iostream>
 #include <fstream>
+#include <ctype.h>
+#include <string.h>
+#include <cerrno>
 
 int main(int argc, char **argv)
 {
 	std::ifstream file;
+	std::ofstream new_file; 
 	std::string str;
 	std::string file_name;
-	int j;
-	int y;
+	int index;
 
 	if (argc == 4)
 	{
@@ -16,30 +19,17 @@ int main(int argc, char **argv)
 		{
 			file_name = argv[1];
 			file_name.insert(file_name.length(), ".replace");
-			std::ofstream new_file(file_name);
+			new_file.open(file_name, std::ios::out);
 			if (new_file)
 			{
 				while (getline(file, str))
 				{
-					for (unsigned int i = 0; i < str.length(); i++)
+					index = 0;
+					for (std::string::size_type ret = 1; (ret = str.find(argv[2], index)) != std::string::npos;)
 					{
-						j = 0;
-						if (str[i] == argv[2][j])
-						{
-							y = i;
-							while (str[y] == argv[2][j])
-							{
-								if (argv[2][j + 1] == '\0')
-								{
-									str.erase(i, y - i + 1);
-									str.insert(i, argv[3]);
-									break;
-								}
-								y++;
-								j++;
-							}
-							i = y;
-						}
+						str.erase(ret, strlen(argv[2]));
+						str.insert(ret, argv[3]);
+						index = ret + strlen(argv[2]);
 					}
 					new_file << str << std::endl;
 				}
@@ -48,10 +38,10 @@ int main(int argc, char **argv)
 				return (0);		
 			}
 			else
-				std::cout << "Error with file" << std::endl;
+				std::cout << "Error : " << strerror(errno) << std::endl;
 		}
 		else
-			std::cout << "Error with file" << std::endl;
+			std::cout << "Error : " << strerror(errno) << std::endl;
 	}
 	else
 		std::cout << "Error: Arguments" << std::endl;

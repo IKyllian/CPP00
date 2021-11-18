@@ -1,12 +1,9 @@
-NAME = human
+NAME = zombie
 
-HEADER = Weapon.hpp \
-		 HumanA.hpp \
-		 HumanB.hpp
-SRCS = main.cpp \
-		Weapon.cpp \
-		HumanA.cpp \
-		HumanB.cpp
+HEADER = Zombie.hpp
+SRCS = Zombie.cpp \
+		ZombieHorde.cpp \
+		main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 CLANG = clang++

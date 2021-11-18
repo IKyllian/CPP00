@@ -15,7 +15,7 @@ class HumanB
 
 	private :
 	std::string name;
-	Weapon *weapon; //Utilise pointeur car HumanB peut ne pas avoir d'arme au debut et on ne peut pas utilisé une reference sans initialisation
+	Weapon *weapon; //Utilise pointeur car HumanB peut ne pas avoir d'arme au debut et on ne peut pas utiliser une reference sans initialisation
 };
 
 #endif

@@ -26,8 +26,18 @@ void Karen::error(void)
 void Karen::complain(std::string level)
 {
 	std::string msgs[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	mbrPtr ptr[4] = {&Karen::debug, &Karen::info, &Karen::warning, &Karen::error};
-	for (int i = 0; i < 4; i++)
+	int i;
+
+	i = -1;
+	while (++i < 4)
 		if (msgs[i] == level)
-			(this->*ptr[i])();
+			break ;
+	switch(i)
+	{
+		case 0: std::cout << "[ DEBUG ]" << std::endl; this->debug(); std::cout << std::endl;
+		case 1: std::cout << "[ INFO ]" << std::endl; this->info(); std::cout << std::endl;
+		case 2: std::cout << "[ WARNING ]" << std::endl; this->warning(); std::cout << std::endl;
+		case 3: std::cout << "[ ERROR ]" << std::endl; this->error(); break ;
+		default : std::cout << "[ Probably complaining about insignificant problem ]" << std::endl;
+	}
 }

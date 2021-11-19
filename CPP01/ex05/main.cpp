@@ -1,15 +1,13 @@
 #include "Karen.hpp"
 
-int main(int argc, char **argv)
+int main()
 {
 	Karen karen;
 	
-	if (argc == 2)
-	{
-		karen.complain(argv[1]);
-		return (0);
-	}
-	else
-		std::cout << "Errors: Arguments" << std::endl;
-	return (1);
+	karen.complain("DEBUG");
+	karen.complain("INFO");
+	karen.complain("WARNING");
+	karen.complain("ERROR");
+
+	return (0);
 }

@@ -18,5 +18,8 @@ int main()
 
 	zoro.attack(mihawk.getName());
 	mihawk.takeDamage(zoro.getAttackDamage());
+
+	zoro.attack(mihawk.getName());
+	mihawk.takeDamage(zoro.getAttackDamage());
 	return (0);
 }

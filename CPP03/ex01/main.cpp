@@ -3,36 +3,19 @@
 
 int main()
 {
-	ClapTrap zoro("Zoro");
-	ClapTrap mihawk("Mihawk");
-	ScavTrap nakomamushi("Nekomamushi");
+	ScavTrap nekomamushi("Nekomamushi");
 	ScavTrap kaido("Kaido");
 
-	zoro.setAttackDamage(8);
-	mihawk.setAttackDamage(9);
+	nekomamushi.guardGate();
 
-	nakomamushi.guardGate();
 
-	zoro.attack(kaido.getName());
-	kaido.takeDamage(zoro.getAttackDamage());
-
-	nakomamushi.attack(kaido.getName());
-	kaido.takeDamage(nakomamushi.getAttackDamage());
+	nekomamushi.attack(kaido.getName());
+	kaido.takeDamage(nekomamushi.getAttackDamage());
 
 	kaido.beRepaired(15);
 
-	nakomamushi.attack(kaido.getName());
-	kaido.takeDamage(nakomamushi.getAttackDamage());
+	nekomamushi.attack(kaido.getName());
+	kaido.takeDamage(nekomamushi.getAttackDamage());
 	
-	zoro.attack(mihawk.getName());
-	mihawk.takeDamage(zoro.getAttackDamage());
-
-	mihawk.attack(zoro.getName());
-	zoro.takeDamage(mihawk.getAttackDamage());
-
-	zoro.beRepaired(5);
-
-	zoro.attack(mihawk.getName());
-	mihawk.takeDamage(zoro.getAttackDamage());
 	return (0);
 }

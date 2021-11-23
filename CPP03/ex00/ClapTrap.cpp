@@ -2,12 +2,26 @@
 
 ClapTrap::ClapTrap(std::string name) : name(name), energy_points(10), hit_point(10), attack_damage(0)
 {
-
+	std::cout << "Constructor of " << name << " Called" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
+	std::cout << "Destructor of " << name << " Called" << std::endl;
+}
 
+ClapTrap::ClapTrap(const ClapTrap &src)
+{
+	*this = src;
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap &src)
+{
+	name = src.name;
+	energy_points = src.energy_points;
+	hit_point = src.hit_point;
+	attack_damage = src.attack_damage;
+	return *this;
 }
 
 std::string ClapTrap::getName(void)
@@ -23,6 +37,7 @@ unsigned int ClapTrap::getAttackDamage(void)
 void ClapTrap::setAttackDamage(unsigned int amount)
 {
 	this->attack_damage = amount;
+	std::cout << name << "'s attack damage set to " << amount << std::endl;
 }
 
 void ClapTrap::attack(std::string const & target)
@@ -45,7 +60,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 			std::cout << name << " is dead " << std::endl;
 	}
 	else
-		std::cout << "I'm already dead" << std::endl;
+		std::cout << name << " is already dead" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)

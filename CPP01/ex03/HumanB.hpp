@@ -7,15 +7,17 @@
 class HumanB
 {
 	public :
-	HumanB(std::string name);
-	~HumanB();
+		HumanB(){};
+		HumanB(std::string name);
+		HumanB(std::string name, Weapon *weapon);
+		~HumanB() {};
 
-	void attack();
-	void setWeapon(Weapon &weapon);
+		void attack();
+		void setWeapon(Weapon &weapon);
 
 	private :
-	std::string name;
-	Weapon *weapon; //Utilise pointeur car HumanB peut ne pas avoir d'arme au debut et on ne peut pas utiliser une reference sans initialisation
+		std::string _name;
+		Weapon *_weapon;
 };
 
 #endif

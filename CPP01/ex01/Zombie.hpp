@@ -1,6 +1,6 @@
 #ifndef ZOMBIE_HPP
 #define ZOMBIE_HPP
-#define SIZE 5
+#define SIZE 7
 
 #include <iostream>
 

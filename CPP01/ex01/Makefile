@@ -1,4 +1,4 @@
-NAME = zombie
+NAME = zombieHorde
 
 HEADER = Zombie.hpp
 SRCS = Zombie.cpp \

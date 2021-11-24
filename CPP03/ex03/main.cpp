@@ -1,22 +1,25 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
-	FragTrap kaido("Kaido");
-	FragTrap luffy("Luffy");
+	DiamondTrap kaido("Kaido");
+	DiamondTrap luffy("Luffy");
 
 	luffy.attack(kaido.getName());
 	kaido.takeDamage(luffy.getAttackDamage());
 
-	kaido.attack(luffy.getName());
-	luffy.takeDamage(kaido.getAttackDamage());
+	luffy.guardGate();
+	kaido.beRepaired(20);
+	// kaido.attack(luffy.getName());
+	// luffy.takeDamage(kaido.getAttackDamage());
 
-	luffy.beRepaired(15);
+	// luffy.beRepaired(15);
 
-	luffy.attack(kaido.getName());
-	kaido.takeDamage(luffy.getAttackDamage());
+	// luffy.attack(kaido.getName());
+	// kaido.takeDamage(luffy.getAttackDamage());
 	
 	return (0);
 }

@@ -2,11 +2,13 @@ NAME = DiamondTrap
 
 HEADER = ClapTrap.hpp \
 		 ScavTrap.hpp \
-		 FragTrap.hpp
+		 FragTrap.hpp \
+		 DiamondTrap.hpp
 SRCS = main.cpp \
 		ClapTrap.cpp \
 		ScavTrap.cpp \
-		FragTrap.cpp
+		FragTrap.cpp \
+		DiamondTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 CLANG = clang++

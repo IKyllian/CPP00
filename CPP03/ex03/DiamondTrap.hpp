@@ -2,9 +2,9 @@
 #define DIAMONDTRAP_HPP
 
 #include "ScavTrap.hpp"
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
-class DiamondTrap : public ScavTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
 	public :
 		DiamondTrap() {};	
@@ -15,6 +15,9 @@ class DiamondTrap : public ScavTrap
 		DiamondTrap& operator=(const DiamondTrap& src);
 
 		void whoAmI();
+		void attack(std::string const & target) {
+			ScavTrap::attack(target);
+		}
 
 	private :
 		std::string name;

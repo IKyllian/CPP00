@@ -1,11 +1,14 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(std::string name): ScavTrap(name), name(name)
+DiamondTrap::DiamondTrap(std::string name): ScavTrap(name + "ScavTrap"), FragTrap(name + "FragTrap") ,name(name)
 {
-	std::cout << "DiamondTrap constructor of " name << " called" << std::endl;
+	hit_point = FragTrap::hit_point;
+	energy_points =  ScavTrap::energy_points;
+	attack_damage = FragTrap::attack_damage;
+	std::cout << "DiamondTrap constructor of " << name << " called" << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap &src)
+DiamondTrap::DiamondTrap(const DiamondTrap &src)
 {
 	*this = src;
 }
@@ -15,7 +18,7 @@ DiamondTrap::~DiamondTrap()
 	std::cout << "DiamondTrap destrcutor of " << name << " called" << std::endl;
 }
 
-FragTrap& FragTrap::operator=(const FragTrap& src)
+DiamondTrap& DiamondTrap::operator=(const DiamondTrap& src)
 {
 	name = src.name;
 	energy_points = src.energy_points;

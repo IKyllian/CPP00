@@ -7,19 +7,19 @@ class Fixed
 {
 	public:
 
-	Fixed();
-	Fixed(const Fixed &src);
-	~Fixed();
+		Fixed();
+		Fixed(const Fixed &src);
+		~Fixed();
 
-	Fixed& operator=(const Fixed &src);
-	
-	int getRawBits(void) const;
-	void setRawBits(int const raw);
+		Fixed& operator=(const Fixed &src);
+		
+		int getRawBits(void) const;
+		void setRawBits(int const raw);
 
 	private:
 	
-	int value_fixe;
-	static const int bits;
+		int _value;
+		static const int bits;
 };
 
 #endif

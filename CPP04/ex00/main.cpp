@@ -7,25 +7,21 @@
 int main()
 {
     const Animal* meta = new Animal();
-	const WrongAnimal* beta = new WrongAnimal();
     const Animal* j = new Dog();
-	const WrongAnimal* h = new WrongCat();
     const Animal* i = new Cat();
 
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	std::cout << h->getType() << " " << std::endl;
-
+	const WrongAnimal* wrongAnimal = new WrongCat();
+	const WrongCat* wrongCat = new WrongCat();
 	
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
-	h->makeSound();
+	wrongAnimal->makeSound();
+	wrongCat->makeSound();
 	meta->makeSound();
-	beta->makeSound();
 
 	delete i;
 	delete j;
-	delete h;
+	delete wrongCat;
 	delete meta;
-	delete beta;
+	delete wrongAnimal;
 }

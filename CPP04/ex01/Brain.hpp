@@ -7,12 +7,15 @@ class Brain
 {
 	public :
 
-	Brain();
-	~Brain();
+		Brain();
+		Brain(const Brain &src);
+		~Brain();
+
+		Brain& operator=(const Brain &src);
 
 	protected :
 
-	std::string ideas[100];
+		std::string _ideas[100];
 };
 
 #endif

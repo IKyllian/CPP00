@@ -9,16 +9,18 @@ class Dog : public Animal
 {
 	public :
 
-	Dog();
-	~Dog();
+		Dog();
+		Dog(const Dog &src);
+		~Dog();
 
-	std::string getType(void) const;
-	void makeSound() const;
+		Dog& operator=(const Dog &src);
+
+		std::string getType(void) const;
+		void makeSound() const;
 
 	private :
 
-	Brain *_brain;
-
+		Brain *_brain;
 };
 
 #endif

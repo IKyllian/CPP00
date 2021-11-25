@@ -8,14 +8,14 @@ class Cat : public Animal
 {
 	public :
 
-	Cat();
-	~Cat();
+		Cat();
+		Cat(const Cat &src);
+		~Cat();
 
-	std::string getType(void) const;
-	void makeSound() const;
+		Cat& operator=(const Cat &src);
 
-	protected :
-
+		std::string getType(void) const;
+		virtual void makeSound() const;
 };
 
 #endif

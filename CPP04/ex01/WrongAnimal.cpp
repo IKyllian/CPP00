@@ -15,7 +15,13 @@ std::string WrongAnimal::getType(void) const
 	return (this->_type);
 }
 
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal &src)
+{
+	_type = src._type;
+	return (*this);
+}
+
 void WrongAnimal::makeSound() const
 {
-
+	std::cout << "Wrong Animal" << std::endl;
 }

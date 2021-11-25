@@ -7,15 +7,18 @@ class WrongAnimal
 {
 	public :
 
-	WrongAnimal();
-	virtual ~WrongAnimal();
+		WrongAnimal();
+		WrongAnimal(const WrongAnimal &src);
+		virtual ~WrongAnimal();
 
-	std::string getType(void) const;
-	virtual void makeSound() const;
+		WrongAnimal& operator=(const WrongAnimal &src);
+
+		std::string getType(void) const;
+		void makeSound() const;
 
 	protected :
 
-	std::string _type;
+		std::string _type;
 };
 
 #endif

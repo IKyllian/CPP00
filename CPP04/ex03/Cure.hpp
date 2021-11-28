@@ -11,9 +11,12 @@ class Cure : public AMateria
 
 		Cure();
 		Cure(std::string const & type);
+		Cure(const Cure& src);
 		virtual ~Cure(){};
 
-		std::string const & getType() const; //Returns the materia type
+		Cure& operator=(const Cure& src);
+
+		std::string const & getType() const;
 
 		virtual AMateria* clone() const;
 		virtual void use(ICharacter& target);

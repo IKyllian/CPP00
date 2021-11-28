@@ -2,8 +2,25 @@
 
 Character::Character(std::string name) : _index(0), _name(name)
 {
-	for(int i = 0; i < 4; i++)
+	for(int i = 0; i < ARRAY_SIZE; i++)
 		_inventory[i] = NULL;
+}
+
+Character::Character(const Character& src)
+{
+	*this = src;
+}
+
+Character& Character::operator=(const Character& src)
+{
+	this->_index = src._index;
+	this->_name = src._name;
+	for(int i = 0; i < ARRAY_SIZE; i++)
+	{
+		this->_inventory[i] = NULL;
+		this->_inventory[i] = src._inventory[i]->clone();
+	}
+	return (*this);
 }
 
 std::string const &Character::getName() const
@@ -13,7 +30,7 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria *m)
 {
-	if (_index < 4)
+	if (_index < ARRAY_SIZE)
 	{
 		_inventory[_index] = m;
 		_index++;

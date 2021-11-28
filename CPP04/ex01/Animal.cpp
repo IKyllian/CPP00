@@ -7,6 +7,7 @@ Animal::Animal() : _type("Animal")
 
 Animal::Animal(const Animal &src)
 {
+	std::cout << "Animal Copy Destructor" << std::endl;
 	*this = src;
 }
 
@@ -17,6 +18,7 @@ Animal::~Animal()
 
 Animal& Animal::operator=(const Animal &src)
 {
+	std::cout << "Animal Asignation Operator" << std::endl;
 	_type = src._type;
 	return (*this);
 }

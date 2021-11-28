@@ -8,14 +8,14 @@ class WrongCat : public WrongAnimal
 {
 	public :
 
-	WrongCat();
-	~WrongCat();
+		WrongCat();
+		WrongCat(const WrongCat &src);
+		~WrongCat();
 
-	std::string getType(void) const;
-	void makeSound() const;
+		WrongCat& operator=(const WrongCat &src);
 
-	protected :
-
+		std::string getType(void) const;
+		void makeSound() const;
 };
 
 #endif

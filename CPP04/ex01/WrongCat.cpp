@@ -8,6 +8,7 @@ WrongCat::WrongCat()
 
 WrongCat::WrongCat(const WrongCat &src)
 {
+	std::cout << "WrongCat Copy Constructor" << std::endl;
 	*this = src;
 }
 
@@ -18,6 +19,7 @@ WrongCat::~WrongCat()
 
 WrongCat& WrongCat::operator=(const WrongCat &src)
 {
+	std::cout << "WrongCat Asignation Operator" << std::endl;
 	_type = src._type;
 	return (*this);
 }

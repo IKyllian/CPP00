@@ -10,6 +10,7 @@ Cat::Cat()
 
 Cat::Cat(const Cat &src)
 {
+	std::cout << "Cat Copy Constructor" << std::endl;
 	*this = src;
 }
 
@@ -21,7 +22,10 @@ Cat::~Cat()
 
 Cat& Cat::operator=(const Cat &src)
 {
+	std::cout << "Cat Asignation Operator" << std::endl;
 	_type = src._type;
+	_brain = new Brain();
+	*_brain = *(src._brain);
 	return (*this);
 }
 

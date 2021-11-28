@@ -16,7 +16,6 @@ class WrongCat : public WrongAnimal
 
 		std::string getType(void) const;
 		void makeSound() const;
-
 };
 
 #endif

@@ -32,8 +32,10 @@ class Fixed
 		Fixed &operator--(void);
 		Fixed &operator--(int);
 
-		static Fixed& min(Fixed const &fx1, Fixed const &fx2) const;
-		static Fixed& max(Fixed const &fx1, Fixed const &fx2) const;
+		static Fixed& min(Fixed &fx1, Fixed &fx2);
+		static Fixed& max(Fixed &fx1, Fixed &fx2);
+		static const Fixed& min(Fixed const &fx1, Fixed const &fx2);
+		static const Fixed& max(Fixed const &fx1, Fixed const &fx2);
 
 		Fixed& operator=(const Fixed &src);
 

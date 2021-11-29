@@ -1,10 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
-{
-	_name = "undefined";
-	_grade = 150;
-}
+Bureaucrat::Bureaucrat() : _name("undefined"), _grade(150) {}
 
 Bureaucrat::Bureaucrat(const Bureaucrat &src)
 {

@@ -1,10 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
-{
-	_name = "undefined";
-	_grade = 150;
-}
+Bureaucrat::Bureaucrat() : _name("undefined"), _grade(150) {}
 
 Bureaucrat::Bureaucrat(const Bureaucrat &src)
 {
@@ -64,7 +60,6 @@ std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat)
 	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << "." << std::endl;
 	return (os);
 }
-
 
 				/* GradeTooHighException EXEPTION  */
 

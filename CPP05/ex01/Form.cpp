@@ -1,12 +1,6 @@
 #include "Form.hpp"
 
-Form::Form()
-{
-	_name = "undefined";
-	_sign_grade = 1;
-	_exec_grade = 1;
-	_signed = false;
-}
+Form::Form() : _name("undefined"), _sign_grade(1), _exec_grade(1), _signed(false) {}
 
 Form::Form(const Form &form)
 {

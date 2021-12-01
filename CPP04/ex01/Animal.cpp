@@ -19,6 +19,8 @@ Animal::~Animal()
 Animal& Animal::operator=(const Animal &src)
 {
 	std::cout << "Animal Asignation Operator" << std::endl;
+	if (this == &src)
+		return (*this);
 	_type = src._type;
 	return (*this);
 }

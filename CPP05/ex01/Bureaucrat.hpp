@@ -36,26 +36,26 @@ class Bureaucrat
 			virtual const char* what() const throw();
 		};
 
-	Bureaucrat();
-	Bureaucrat(const Bureaucrat &src);
-	Bureaucrat(std::string name, int grade);
+		Bureaucrat();
+		Bureaucrat(const Bureaucrat &src);
+		Bureaucrat(std::string name, int grade);
 
-	~Bureaucrat() {};
+		~Bureaucrat() {};
 
-	Bureaucrat &operator=(const Bureaucrat &b);
+		Bureaucrat &operator=(const Bureaucrat &b);
 
-	void grade_increment();
-	void grade_decrement();
-	void signForm(Form &form);
+		void grade_increment();
+		void grade_decrement();
+		void signForm(Form &form);
 
-	const std::string getName(void) const;
-	int getGrade(void) const;
+		const std::string getName(void) const;
+		int getGrade(void) const;
 
 
 	private :
 
-	std::string	_name;
-	int			_grade;
+		const std::string	_name;
+		int			_grade;
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);

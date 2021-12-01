@@ -18,6 +18,8 @@ Cat::~Cat()
 
 Cat& Cat::operator=(const Cat &src)
 {
+	if (this == &src)
+		return (*this);
 	_type = src._type;
 	return (*this);
 }

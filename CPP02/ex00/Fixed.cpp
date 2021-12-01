@@ -21,6 +21,8 @@ Fixed::~Fixed()
 Fixed &Fixed::operator=(const Fixed &src)
 {
 	std::cout << "Assignation operator called" << std::endl;
+	if (this == &src)
+		return (*this);
 	_value = src.getRawBits();
 	return *this;
 }

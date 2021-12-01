@@ -13,6 +13,8 @@ Character::Character(const Character& src)
 
 Character& Character::operator=(const Character& src)
 {
+	if (this == &src)
+		return (*this);
 	this->_index = src._index;
 	this->_name = src._name;
 	for(int i = 0; i < ARRAY_SIZE; i++)

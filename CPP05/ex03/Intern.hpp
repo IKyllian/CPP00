@@ -13,13 +13,11 @@ class Intern
 
 		Intern() {};
 		Intern(const Intern &src);
-
 		~Intern() {};
 
 		Intern &operator=(const Intern &b);
 
 		Form *makeForm(std::string NameForm, std::string TargetForm);
-
 };
 
 #endif

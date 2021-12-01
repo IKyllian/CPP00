@@ -22,6 +22,8 @@ Dog::~Dog()
 Dog& Dog::operator=(const Dog &src)
 {
 	std::cout << "Dog Asignation Operator" << std::endl;
+	if (this == &src)
+		return (*this);
 	_type = src._type;
 	_brain = new Brain();
 	*_brain = *(src._brain);

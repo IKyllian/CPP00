@@ -20,6 +20,8 @@ ScavTrap::~ScavTrap()
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& src)
 {
+	if (this == &src)
+		return (*this);
 	name = src.name;
 	energy_points = src.energy_points;
 	hit_point = src.hit_point;

@@ -2,29 +2,20 @@
 
 Bureaucrat::Bureaucrat() : _name("undefined"), _grade(150) {}
 
-Bureaucrat::Bureaucrat(const Bureaucrat &src)
-{
-	*this = src;
-}
+Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src._name), _grade(src._grade) {}
 
-Bureaucrat::Bureaucrat(std::string name, int grade)
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
 	if (grade < 1)
 		throw Bureaucrat::GradeTooLowException();
 	else if (grade > 150)
 		throw Bureaucrat::GradeTooHighException();
-	else
-	{
-		this->_name = name;
-		this->_grade = grade;
-	}
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &b)
 {
 	if (this == &b)
 		return (*this); // évite l'autoaffectation
-	_name = b._name;
 	_grade = b._grade;
 	return (*this);
 }

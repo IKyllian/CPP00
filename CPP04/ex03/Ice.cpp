@@ -11,6 +11,8 @@ Ice::Ice(const Ice& src)
 
 Ice& Ice::operator=(const Ice& src)
 {
+	if (this == &src)
+		return (*this);
 	this->_type = src.getType();
 	return (*this);
 }

@@ -17,6 +17,8 @@ Animal::~Animal()
 
 Animal& Animal::operator=(const Animal &src)
 {
+	if (this == &src)
+		return (*this);
 	_type = src._type;
 	return (*this);
 }

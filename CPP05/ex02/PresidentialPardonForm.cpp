@@ -1,19 +1,13 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : Form("Presidential", "undefined", 25, 5)
-{
-
-}
+PresidentialPardonForm::PresidentialPardonForm() : Form("Presidential", "undefined", 25, 5) {}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &p)
 {
 	*this = p;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("Presidential", target, 25, 5)
-{
-
-}
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("Presidential", target, 25, 5) {}
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &p)
 {

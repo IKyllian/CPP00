@@ -17,6 +17,8 @@ MateriaSource::MateriaSource(const MateriaSource& src)
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& src)
 {
+	if (this == &src)
+		return (*this);
 	this->_index = src._index;
 	for(int i = 0; i < ARRAY_SIZE; i++)
 	{

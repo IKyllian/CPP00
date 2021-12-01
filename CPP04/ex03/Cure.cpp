@@ -11,6 +11,8 @@ Cure::Cure(const Cure& src)
 
 Cure& Cure::operator=(const Cure& src)
 {
+	if (this == &src)
+		return (*this);
 	this->_type = src.getType();
 	return (*this);
 }

@@ -19,7 +19,8 @@ Brain::~Brain()
 Brain& Brain::operator=(const Brain &src)
 {
 	std::cout << "Brain Asignation Operator" << std::endl;
-	(void)src;
+	if (this == &src)
+		return (*this);
 	// ideas = src.ideas;
 	return (*this);
 }

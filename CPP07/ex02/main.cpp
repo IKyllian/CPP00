@@ -59,25 +59,6 @@ T &Array<T>::operator[](size_t i)
 		return (this->_array[i]);
 }
 
-// template <typename T>
-// Array<T>::IndexException::IndexException (const exception& e)
-// {
-// 	*this = e;
-// }
-
-// template <typename T>
-// Array<T>::IndexException& Array<T>::IndexException::operator=(const exception &e)
-// {
-// 	(void)e;
-// 	return (*this);
-// }
-
-// template <typename T>
-// const char* Array<T>::IndexException::what() const throw()
-// {
-// 	return ("This index does not exist");
-// }
-
 #define MAX_VAL 750
 int main(int, char**)
 {

@@ -24,6 +24,8 @@ std::string WrongAnimal::getType(void) const
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal &src)
 {
 	std::cout << "WrongAnimal Asignation Operator" << std::endl;
+	if (this == &src)
+		return (*this);
 	_type = src._type;
 	return (*this);
 }

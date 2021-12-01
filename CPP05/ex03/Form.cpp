@@ -1,20 +1,10 @@
 #include "Form.hpp"
 
-Form::Form()
-{
-	_name = "undefined";
-	_name = "undefined";
-	_sign_grade = 1;
-	_exec_grade = 1;
-	_signed = false;
-}
+Form::Form() : _name("undefined"), _signed(false), _sign_grade(1), _exec_grade(1) {}
 
-Form::Form(const Form &form)
-{
-	*this = form;
-}
+Form::Form(const Form &form) : _name(form._name), _signed(form._signed), _sign_grade(form._sign_grade), _exec_grade(form._exec_grade), _target(form._target) {}
 
-Form::Form(std::string name, std::string target, int sign_grade, int exec_grade)
+Form::Form(std::string name, std::string target, int sign_grade, int exec_grade) : _name(name), _signed(false), _sign_grade(sign_grade), _exec_grade(exec_grade), _target(target)
 {
 	if (sign_grade < 1)
 		throw Form::GradeTooLowException();
@@ -24,24 +14,13 @@ Form::Form(std::string name, std::string target, int sign_grade, int exec_grade)
 		throw Form::GradeTooLowException();
 	else if (exec_grade > 150)
 		throw Form::GradeTooHighException();
-	else
-	{
-		_name = name;
-		_sign_grade = sign_grade;
-		_exec_grade = exec_grade;
-		_target = target;
-		_signed = false;
-	}
 }
 
 Form &Form::operator=(const Form &f)
 {
 	if (this == &f)
 		return (*this);
-	_name = f._name;
 	_signed = f._signed;
-	_sign_grade = f._sign_grade;
-	_exec_grade = f._exec_grade;
 	return (*this);
 }
 

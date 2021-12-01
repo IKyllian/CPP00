@@ -9,6 +9,8 @@ AMateria::AMateria(const AMateria& src)
 
 AMateria& AMateria::operator=(const AMateria& src)
 {
+	if (this == &src)
+		return (*this);
 	this->_type = src.getType();
 	return (*this);
 }

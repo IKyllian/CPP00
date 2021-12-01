@@ -1,19 +1,13 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : Form("Robotomy", "undefined", 72, 45)
-{
-	
-}
+RobotomyRequestForm::RobotomyRequestForm() : Form("Robotomy", "undefined", 72, 45) {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &r)
 {
 	*this = r;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("Robotomy", target, 72, 45)
-{
-
-}
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("Robotomy", target, 72, 45) {}
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &r)
 {

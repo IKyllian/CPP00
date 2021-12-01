@@ -20,6 +20,8 @@ WrongCat::~WrongCat()
 WrongCat& WrongCat::operator=(const WrongCat &src)
 {
 	std::cout << "WrongCat Asignation Operator" << std::endl;
+	if (this == &src)
+		return (*this);
 	_type = src._type;
 	return (*this);
 }

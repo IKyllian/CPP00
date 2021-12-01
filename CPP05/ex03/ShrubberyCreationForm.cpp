@@ -1,20 +1,14 @@
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm() : Form("Shruberry", "undefined", 145, 137)
-{
-
-}
+ShrubberyCreationForm::ShrubberyCreationForm() : Form("Shruberry", "undefined", 145, 137) {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &s)
 {
 	*this = s;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("Shruberry", target, 145, 137)
-{
-
-}
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("Shruberry", target, 145, 137) {}
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &s)
 {

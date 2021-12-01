@@ -21,6 +21,8 @@ FragTrap::~FragTrap()
 
 FragTrap& FragTrap::operator=(const FragTrap& src)
 {
+	if (this == &src)
+		return (*this);
 	name = src.name;
 	energy_points = src.energy_points;
 	hit_point = src.hit_point;

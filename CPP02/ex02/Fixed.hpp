@@ -28,9 +28,9 @@ class Fixed
 		Fixed operator/(const Fixed& fx);
 
 		Fixed &operator++(void);
-		Fixed &operator++(int);
+		Fixed operator++(int);
 		Fixed &operator--(void);
-		Fixed &operator--(int);
+		Fixed operator--(int);
 
 		static Fixed& min(Fixed &fx1, Fixed &fx2);
 		static Fixed& max(Fixed &fx1, Fixed &fx2);

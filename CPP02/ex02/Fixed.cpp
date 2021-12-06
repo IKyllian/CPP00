@@ -136,12 +136,12 @@ Fixed &Fixed::operator++(void)
 	return (*this);
 }
 
-Fixed &Fixed::operator++(int)
+Fixed Fixed::operator++(int)
 {
-	Fixed fixed(*this);
+	Fixed fixed = *this;
 
-	++this->_value;
-	return (*this);
+	++(*this);
+	return (fixed);
 }
 		
 Fixed &Fixed::operator--(void)
@@ -150,12 +150,12 @@ Fixed &Fixed::operator--(void)
 	return (*this);
 }
 
-Fixed &Fixed::operator--(int)
+Fixed Fixed::operator--(int)
 {
-	Fixed fixed(*this);
+	Fixed fixed = *this;
 
-	--this->_value;
-	return (*this);
+	--(*this);
+	return (fixed);
 }
 
 Fixed& Fixed::min(Fixed &fx1, Fixed &fx2)

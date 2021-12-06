@@ -1,6 +1,6 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(std::string name): ClapTrap(name), ScavTrap(name + "ScavTrap"), FragTrap(name + "FragTrap") ,name(name)
+DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "clap_name"), name(name)
 {
 	hit_point = FragTrap::hit_point;
 	energy_points =  ScavTrap::energy_points;

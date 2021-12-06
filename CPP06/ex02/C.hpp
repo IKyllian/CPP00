@@ -4,10 +4,6 @@
 #include <iostream>
 #include "./Base.hpp"
 
-class C : public Base
-{
-	// public :
-	// 	virtual ~C() {};
-};
+class C : public Base {};
 
 #endif

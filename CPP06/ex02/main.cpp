@@ -7,20 +7,11 @@ Base * generate(void)
 {
 	int nb = rand() % 3;
 	if (nb == 0)
-	{
-		std::cout << "created A" << std::endl;
 		return (new A);
-	}
 	else if (nb == 1)
-	{
-		std::cout << "created B" << std::endl;
 		return (new B);
-	}
 	else
-	{
-		std::cout << "created C" << std::endl;
 		return (new C);
-	}
 }
 
 void identify_from_pointer(Base *p)
@@ -56,16 +47,10 @@ void identify_from_reference(Base &p)
 
 int main()
 {
-	Base* test;
-	Base* test2;
-
-	Base *test3;
-	Base *test4;
-
-	test = generate();
-	test2 = generate();
-	test3 = generate();
-	test4 = generate();
+	Base* test = generate();
+	Base* test2 = generate();
+	Base *test3 = generate();
+	Base *test4 = generate();
 
 	identify_from_pointer(test);
 	identify_from_pointer(test2);

@@ -1,63 +1,63 @@
 #include "Array.hpp"
 
-template <typename T>
-Array<T>::Array()
-{
-	_array = NULL;
-	_size = 0;
-}
+// template <typename T>
+// Array<T>::Array()
+// {
+// 	_array = NULL;
+// 	_size = 0;
+// }
 
-template <typename T>
-Array<T>::Array(Array const &array)
-{
-	*this = array;
-}
+// template <typename T>
+// Array<T>::Array(Array const &array)
+// {
+// 	*this = array;
+// }
 
-template <typename T>
-Array<T>::Array(unsigned int n)
-{
-	_array = new T[n];
-	_size = n;
-}
+// template <typename T>
+// Array<T>::Array(unsigned int n)
+// {
+// 	_array = new T[n];
+// 	_size = n;
+// }
 
-template <typename T>
-Array<T>::~Array()
-{
-	if (this->_array != NULL)
-		delete [] this->_array;
-}
+// template <typename T>
+// Array<T>::~Array()
+// {
+// 	if (this->_array != NULL)
+// 		delete [] this->_array;
+// }
 
-template <typename T>
-Array<T> &Array<T>::operator=(Array const &array)
-{
-	if (this == &array)
-		return (*this);
-	if (this->_size != array._size)
-	{
-		if (this->_array != NULL)
-			delete [] this->_array;
-		this->_array = new T[array._size];
-		this->_size = array._size;
-	}
-	for (size_t i = 0; i < this->_size; i++)
-		this->_array[i] = array._array[i];
-	return (*this);
-}
+// template <typename T>
+// Array<T> &Array<T>::operator=(Array const &array)
+// {
+// 	if (this == &array)
+// 		return (*this);
+// 	if (this->_size != array._size)
+// 	{
+// 		if (this->_array != NULL)
+// 			delete [] this->_array;
+// 		this->_array = new T[array._size];
+// 		this->_size = array._size;
+// 	}
+// 	for (size_t i = 0; i < this->_size; i++)
+// 		this->_array[i] = array._array[i];
+// 	return (*this);
+// }
 
-template <typename T>
-int Array<T>::size(void) const
-{
-	return (_size);
-}
+// template <typename T>
+// int Array<T>::size(void) const
+// {
+// 	return (_size);
+// }
 
-template <typename T>
-T &Array<T>::operator[](size_t i)
-{
-	if (!this->_array || i < 0 || i > this->_size)
-		throw std::exception();
-	else
-		return (this->_array[i]);
-}
+// template <typename T>
+// T &Array<T>::operator[](size_t i)
+// {
+// 	if (!this->_array || i < 0 || i > this->_size)
+// 		throw std::exception();
+// 	else
+// 		return (this->_array[i]);
+// }
 
 #define MAX_VAL 750
 int main(int, char**)

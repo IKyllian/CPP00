@@ -1,5 +1,10 @@
 NAME = convert
 
+HEADER = Base.hpp \
+		 A.hpp \
+		 B.hpp \
+		 C.hpp
+
 SRCS =	main.cpp
 		
 OBJS = $(SRCS:.cpp=.o)
@@ -8,10 +13,10 @@ CLANG = clang++
 FLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
-%.o : %.cpp
+%.o : %.cpp $(HEADER)
 	$(CLANG) $(FLAGS) -c $< -o $@
 
-$(NAME) : $(OBJS)
+$(NAME) : $(OBJS) $(HEADER)
 	$(CLANG) $(FLAGS) -o $(NAME) $(OBJS)
 
 all : $(NAME)

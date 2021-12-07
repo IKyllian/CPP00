@@ -7,7 +7,7 @@
 template <typename T>
 void easyfind(T container, int nbr)
 {
-    T<int>::iterator it;
+    typename T::iterator it;
 
     for (it = container.begin(); it != container.end(); ++it)
     {
@@ -17,7 +17,8 @@ void easyfind(T container, int nbr)
             return ;
         }
     }
-    std::cout << "No occurrence found" << std::endl;
+    throw std::exception();
+    // std::cout << "No occurrence found" << std::endl;
 }
 
 #endif

@@ -22,6 +22,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& src)
 	this->_index = src._index;
 	for(int i = 0; i < ARRAY_SIZE; i++)
 	{
+		// delete this->_m_stock[i];
 		this->_m_stock[i] = NULL;
 		this->_m_stock[i] = src._m_stock[i]->clone();
 	}

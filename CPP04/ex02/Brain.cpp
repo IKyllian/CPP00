@@ -21,6 +21,6 @@ Brain& Brain::operator=(const Brain &src)
 	std::cout << "Brain Asignation Operator" << std::endl;
 	if (this == &src)
 		return (*this);
-	// ideas = src.ideas;
+	ideas = src.ideas;
 	return (*this);
 }

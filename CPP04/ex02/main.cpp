@@ -6,6 +6,7 @@
 
 int main()
 {
+	// Animal animal = new Animal();
     Animal* tab[10];
 
 	for (int i = 0; i < 10; i++)
@@ -20,3 +21,4 @@ int main()
 
 	for (int i = 0; i < 10; i++)
 		delete tab[i];
+}

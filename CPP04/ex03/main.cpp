@@ -28,5 +28,6 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
+	delete tmp;
 	return 0;
 }

@@ -6,7 +6,7 @@ FragTrap::FragTrap(std::string name): ClapTrap(name)
 	this->hit_point = 100;
 	this->attack_damage = 30;
 
-	std::cout << "FragTrap Constructor of " << name << " called" << std::endl;
+	std::cout << "FragTrap Constructor called" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &src)
@@ -16,7 +16,7 @@ FragTrap::FragTrap(const FragTrap &src)
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap Destructor of " << name << " called" << std::endl;
+	std::cout << "FragTrap Destructor called" << std::endl;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& src)
@@ -30,8 +30,15 @@ FragTrap& FragTrap::operator=(const FragTrap& src)
 	return *this;
 }
 
-void highFivesGuys(void)
+void FragTrap::attack(std::string const & target)
 {
-	std::cout << "High Five" << std::endl;
+	if (this->hit_point > 0)
+		std::cout << "FragTrap " << name << " attack " <<  target << " causing " << attack_damage << " attack damage" << std::endl;
+}
+
+void FragTrap::highFivesGuys(void)
+{
+	if (this->hit_point > 0)
+		std::cout << "High Five" << std::endl;
 }
 

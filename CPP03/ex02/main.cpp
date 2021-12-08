@@ -4,19 +4,23 @@
 
 int main()
 {
-	FragTrap kaido("Kaido");
-	FragTrap luffy("Luffy");
+	FragTrap bob("Bob");
+	FragTrap zoro("Zoro");
+	FragTrap copy("BobJr");
 
-	luffy.attack(kaido.getName());
-	kaido.takeDamage(luffy.getAttackDamage());
+	zoro.attack(bob.getName());
+	bob.takeDamage(zoro.getAttackDamage());
 
-	kaido.attack(luffy.getName());
-	luffy.takeDamage(kaido.getAttackDamage());
+	bob.attack(zoro.getName());
+	zoro.takeDamage(bob.getAttackDamage());
 
-	luffy.beRepaired(15);
+	zoro.beRepaired(15);
 
-	luffy.attack(kaido.getName());
-	kaido.takeDamage(luffy.getAttackDamage());
+	bob.setAttackDamage(100);
+	copy = bob;
+
+	copy.attack(zoro.getName());
+	zoro.takeDamage(copy.getAttackDamage());
 	
 	return (0);
 }

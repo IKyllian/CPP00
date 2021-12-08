@@ -3,19 +3,22 @@
 
 int main()
 {
-	ScavTrap nekomamushi("Nekomamushi");
-	ScavTrap kaido("Kaido");
+	ScavTrap bob("Bob");
+	ScavTrap zoro("Zoro");
+	ScavTrap copy("BobJr");
 
-	nekomamushi.guardGate();
+	bob.guardGate();
 
+	bob.attack(zoro.getName());
+	zoro.takeDamage(bob.getAttackDamage());
 
-	nekomamushi.attack(kaido.getName());
-	kaido.takeDamage(nekomamushi.getAttackDamage());
+	zoro.beRepaired(15);
 
-	kaido.beRepaired(15);
-
-	nekomamushi.attack(kaido.getName());
-	kaido.takeDamage(nekomamushi.getAttackDamage());
+	bob.setAttackDamage(100);
+	copy = bob;
+	
+	copy.attack(zoro.getName());
+	zoro.takeDamage(copy.getAttackDamage());
 	
 	return (0);
 }

@@ -44,7 +44,8 @@ void ClapTrap::setAttackDamage(unsigned int amount)
 
 void ClapTrap::attack(std::string const & target)
 {
-	std::cout << name << " attack " <<  target << " causing " << attack_damage << " attack damage" << std::endl;
+	if (this->hit_point > 0)
+		std::cout << name << " attack " <<  target << " causing " << attack_damage << " attack damage" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)

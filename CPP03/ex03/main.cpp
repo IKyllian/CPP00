@@ -5,14 +5,15 @@
 
 int main()
 {
-	DiamondTrap kaido("Kaido");
-	DiamondTrap luffy("Luffy");
+	DiamondTrap bob("Bob");
+	DiamondTrap zoro("Zoro");
 
-	luffy.attack(kaido.getName());
-	kaido.takeDamage(luffy.getAttackDamage());
+	bob.attack(zoro.getName());
+	zoro.takeDamage(bob.getAttackDamage());
 
-	luffy.guardGate();
-	kaido.beRepaired(20);
-	
+	zoro.beRepaired(20);
+	bob.whoAmI();
+
+
 	return (0);
 }

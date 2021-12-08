@@ -5,7 +5,7 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 	this->energy_points = 50;
 	this->hit_point = 100;
 	this->attack_damage = 20;
-	std::cout << "ScavTrap Constructor of " << name << " called" << std::endl;
+	std::cout << "ScavTrap Constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &src)
@@ -15,7 +15,7 @@ ScavTrap::ScavTrap(const ScavTrap &src)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap Destructor of " << name << " called" << std::endl;
+	std::cout << "ScavTrap Destructor called" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& src)
@@ -31,10 +31,12 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& src)
 
 void ScavTrap::attack(std::string const & target)
 {
-	std::cout << "ScavTrap " << name << " attack " <<  target << " causing " << attack_damage << " attack damage" << std::endl;
+	if (this->hit_point > 0)
+		std::cout << "ScavTrap " << name << " attack " <<  target << " causing " << attack_damage << " attack damage" << std::endl;
 }
 
 void ScavTrap::guardGate()
 {
-	std::cout << name << " begin the guard gate" << std::endl;
+	if (this->hit_point > 0)
+		std::cout << name << " begin the guard gate" << std::endl;
 }

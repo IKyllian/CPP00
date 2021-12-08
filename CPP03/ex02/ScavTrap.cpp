@@ -31,10 +31,12 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& src)
 
 void ScavTrap::attack(std::string const & target)
 {
-	std::cout << "ScavTrap " << name << " attack " <<  target << " causing " << attack_damage << " attack damage" << std::endl;
+	if (this->hit_point > 0)
+		std::cout << "ScavTrap " << name << " attack " <<  target << " causing " << attack_damage << " attack damage" << std::endl;
 }
 
 void ScavTrap::guardGate()
 {
-	std::cout << name << " begin the guard gate" << std::endl;
+	if (this->hit_point > 0)
+		std::cout << name << " begin the guard gate" << std::endl;
 }

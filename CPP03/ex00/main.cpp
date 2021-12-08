@@ -2,24 +2,26 @@
 
 int main()
 {
-	ClapTrap zoro("Zoro");
-	ClapTrap mihawk("Mihawk");
+	ClapTrap bob("Bob");
+	ClapTrap zoro("zoro");
+	ClapTrap copy("BobJr");
 
-	zoro.setAttackDamage(8);
-	mihawk.setAttackDamage(9);
+	bob.setAttackDamage(8);
+	zoro.setAttackDamage(9);
 
-	zoro.attack(mihawk.getName());
-	mihawk.takeDamage(zoro.getAttackDamage());
+	copy = bob;
+	bob.attack(zoro.getName());
+	zoro.takeDamage(bob.getAttackDamage());
 
-	mihawk.attack(zoro.getName());
-	zoro.takeDamage(mihawk.getAttackDamage());
+	zoro.attack(bob.getName());
+	bob.takeDamage(zoro.getAttackDamage());
 
-	zoro.beRepaired(5);
+	bob.beRepaired(5);
 
-	zoro.attack(mihawk.getName());
-	mihawk.takeDamage(zoro.getAttackDamage());
+	bob.attack(zoro.getName());
+	zoro.takeDamage(bob.getAttackDamage());
 
-	zoro.attack(mihawk.getName());
-	mihawk.takeDamage(zoro.getAttackDamage());
+	copy.attack(zoro.getName());
+	zoro.takeDamage(copy.getAttackDamage());
 	return (0);
 }

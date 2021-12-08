@@ -30,8 +30,15 @@ FragTrap& FragTrap::operator=(const FragTrap& src)
 	return *this;
 }
 
-void highFivesGuys(void)
+void FragTrap::attack(std::string const & target)
 {
-	std::cout << "High Five" << std::endl;
+	if (this->hit_point > 0)
+		std::cout << "FragTrap " << name << " attack " <<  target << " causing " << attack_damage << " attack damage" << std::endl;
+}
+
+void FragTrap::highFivesGuys(void)
+{
+	if (this->hit_point > 0)
+		std::cout << "High Five" << std::endl;
 }
 

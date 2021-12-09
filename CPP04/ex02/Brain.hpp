@@ -1,6 +1,8 @@
 #ifndef BRAIN_HPP
 #define BRAIN_HPP
 
+#define TAB_SIZE 100
+
 #include <iostream>
 
 class Brain
@@ -13,9 +15,11 @@ class Brain
 
 		Brain& operator=(const Brain &src);
 
-	protected :
+		std::string const &getIdeas(int idx);
+		void setIdeas(std::string idea, int idx);
 
-		std::string _ideas[100];
+	private : 
+		std::string _ideas[TAB_SIZE];
 };
 
 #endif

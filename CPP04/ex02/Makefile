@@ -3,15 +3,11 @@ NAME = Polymorphism
 HEADER = Animal.hpp \
 		 Dog.hpp \
 		 Cat.hpp \
-		 WrongAnimal.hpp \
-		 WrongCat.hpp \
 		 Brain.hpp
 SRCS = main.cpp \
 		Animal.cpp \
 		Dog.cpp \
 		Cat.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp \
 		Brain.cpp
 OBJS = $(SRCS:.cpp=.o)
 

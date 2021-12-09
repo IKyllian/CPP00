@@ -24,10 +24,32 @@ int main()
 
 	me->use(0, *bob);
 	me->use(1, *bob);
+	me->use(2, *bob);
+
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	tmp = new Ice();
+	src->learnMateria(tmp);
+	delete tmp;
+	
+	AMateria* tmp2;
+	tmp2 = src->createMateria("cure");
+	me->equip(tmp2);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	delete tmp;
+
+	me->unequip(2);
+	delete tmp2;
+
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	me->use(2, *bob);
 
 	delete bob;
 	delete me;
 	delete src;
-	delete tmp;
 	return 0;
 }

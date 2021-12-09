@@ -1,6 +1,6 @@
 #include "Character.hpp"
 
-Character::Character(std::string name) : _index(0), _name(name)
+Character::Character(std::string name) : _name(name)
 {
 	for(int i = 0; i < ARRAY_SIZE; i++)
 		_inventory[i] = NULL;
@@ -11,17 +11,34 @@ Character::Character(const Character& src)
 	*this = src;
 }
 
+Character::~Character()
+{
+	for(int i = 0; i < ARRAY_SIZE; i++)
+	{
+		if (this->_inventory[i])
+		{
+			delete this->_inventory[i];
+			this->_inventory[i] = NULL;
+		}
+	}
+}
+
 Character& Character::operator=(const Character& src)
 {
 	if (this == &src)
 		return (*this);
-	this->_index = src._index;
 	this->_name = src._name;
 	for(int i = 0; i < ARRAY_SIZE; i++)
 	{
-		// delete this->_inventory[i];
-		this->_inventory[i] = NULL;
-		this->_inventory[i] = src._inventory[i]->clone();
+		if (this->_inventory[i])
+		{
+			delete this->_inventory[i];
+			this->_inventory[i] = NULL;
+		}
+		if (src._inventory[i])
+			this->_inventory[i] = src._inventory[i]->clone();
+		else
+			this->_inventory[i] = NULL;
 	}
 	return (*this);
 }
@@ -33,29 +50,35 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria *m)
 {
-	if (_index < ARRAY_SIZE)
+	for (int i = 0; i < ARRAY_SIZE; i++)
 	{
-		_inventory[_index] = m;
-		_index++;
+		if (this->_inventory[i] == NULL)
+		{
+			this->_inventory[i] = m;
+			break;
+		}
+		if (i == (ARRAY_SIZE - 1))
+			std::cout << "Inventory is full" << std::endl;
 	}
-	else
-		std::cout << "Inventory is full :(" << std::endl;
 }
 
 void Character::unequip(int idx)
 {
-	if (idx < this->_index && idx >= 0)
-	{
+	if (idx >= 0 && idx <= 3)
 		this->_inventory[idx] = NULL;
-	}
+	else
+		std::cout << "Index should be between 0 and 3" << std::endl;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (idx < this->_index && idx >= 0)
+	if (idx >= 0 && idx <= 3)
 	{
-		this->_inventory[idx]->use(target);
+		if (this->_inventory[idx] != NULL)
+			this->_inventory[idx]->use(target);
+		else
+			std::cout << "No materia on this index" << std::endl;
 	}
 	else
-		std::cout << "Index does not exist" << std::endl;
+		std::cout << "Index should be between 0 and 3" << std::endl;
 }

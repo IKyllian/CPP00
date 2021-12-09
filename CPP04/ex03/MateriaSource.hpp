@@ -1,6 +1,5 @@
 #ifndef MATERIASOURCE_HPP
 #define MATERIASOURCE_HPP
-#define ARRAY_SIZE 4
 
 #include <iostream>
 #include "IMateriaSource.hpp"
@@ -20,10 +19,7 @@ class MateriaSource : public IMateriaSource
 
 	private :
 
-		AMateria	*_m_stock[ARRAY_SIZE];
-		int			_index;
-
-
+		AMateria *_m_stock[ARRAY_SIZE];
 };
 
 #endif

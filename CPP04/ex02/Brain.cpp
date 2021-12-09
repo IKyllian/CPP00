@@ -21,6 +21,17 @@ Brain& Brain::operator=(const Brain &src)
 	std::cout << "Brain Asignation Operator" << std::endl;
 	if (this == &src)
 		return (*this);
-	ideas = src.ideas;
+	for(int i = 0; i < TAB_SIZE; i++)
+		_ideas[i] = src._ideas[i];
 	return (*this);
+}
+
+std::string const &Brain::getIdeas(int idx)
+{
+	return (this->_ideas[idx]);
+}
+
+void Brain::setIdeas(std::string idea, int idx)
+{
+	this->_ideas[idx] = idea;
 }

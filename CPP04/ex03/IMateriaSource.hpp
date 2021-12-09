@@ -1,6 +1,8 @@
 #ifndef IMATERIASOURCE_HPP
 #define IMATERIASOURCE_HPP
 
+#define ARRAY_SIZE 4
+
 #include <iostream>
 #include "AMateria.hpp"
 

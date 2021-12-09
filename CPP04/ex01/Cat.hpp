@@ -15,7 +15,6 @@ class Cat : public Animal
 
 		Cat& operator=(const Cat &src);
 
-		std::string getType(void) const;
 		virtual void makeSound() const;
 
 	private :

@@ -15,8 +15,11 @@ class Dog : public Animal
 
 		Dog& operator=(const Dog &src);
 
-		std::string getType(void) const;
 		virtual void makeSound() const;
+
+		// *** Functions to test deep copy (not in subject) ***
+		void putStrings();
+		void printStrings();
 
 	private :
 

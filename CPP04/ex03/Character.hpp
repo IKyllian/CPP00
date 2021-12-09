@@ -12,7 +12,7 @@ class Character : public ICharacter
 
 		Character(std::string name);
 		Character(const Character& src);
-		virtual ~Character() {};
+		virtual ~Character();
 
 		Character& operator=(const Character& src);
 
@@ -24,8 +24,7 @@ class Character : public ICharacter
 
 	private :
 
-		AMateria	*_inventory[ARRAY_SIZE];
-		int			_index;
+		AMateria *_inventory[ARRAY_SIZE];
 		std::string _name;
 };
 

@@ -1,28 +1,44 @@
 #include "Animal.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 
 int main()
 {
-	Dog basic;
+    {
+		Animal* tab[4];
 
-	{
-		Dog tmp = basic;
+		for (int i = 0; i < 4; i++)
+		{
+			if (i % 2 == 0)
+				tab[i] = new Dog();
+			else
+				tab[i] = new Cat();
+			tab[i]->getType();
+			tab[i]->makeSound();
+		}
+		for (int i = 0; i < 4; i++)
+			delete tab[i];
 	}
-	std::cout << "End of scope" << std::endl;
-    // Animal* tab[10];
+	{
+		std::cout << std::endl << "------------ Brain Test -----------" << std::endl;
+		Brain brain;
+		Brain brain2;
 
-	// for (int i = 0; i < 10; i++)
-	// {
-	// 	if (i % 2 == 0)
-	// 		tab[i] = new Dog();
-	// 	else
-	// 		tab[i] = new Cat();
-	// 	tab[i]->getType();
-	// 	tab[i]->makeSound();
-	// }
-	// for (int i = 0; i < 10; i++)
-	// 	delete tab[i];
+		brain.setIdeas("Ceci", 0);
+		brain.setIdeas("est", 1);
+		brain.setIdeas("un", 2);
+		brain.setIdeas("test", 3);
+
+		brain2 = brain;
+		for (int i = 0; i < 4; i++)
+			std::cout << brain2.getIdeas(i) << std::endl;
+	}
+	{
+		std::cout << std::endl << "------------ Deep Copy -----------" << std::endl;
+		Dog dog;
+		dog.putStrings();
+		Dog dogCpy;
+		dogCpy = dog;
+		dogCpy.printStrings();
+	}
 }

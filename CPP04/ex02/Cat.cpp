@@ -26,8 +26,10 @@ Cat& Cat::operator=(const Cat &src)
 	if (this == &src)
 		return (*this);
 	_type = src._type;
+	delete _brain;
 	_brain = new Brain();
-	*_brain = *(src._brain);
+	for (int i = 0; i < TAB_SIZE; i++)
+		_brain->setIdeas(src._brain->getIdeas(i), i);
 	return (*this);
 }
 

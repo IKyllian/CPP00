@@ -49,7 +49,7 @@ class Bureaucrat
 	void signForm(Form &form);
 	void executeForm (Form const & form);
 
-	const std::string getName(void) const;
+	const std::string &getName(void) const;
 	int getGrade(void) const;
 
 

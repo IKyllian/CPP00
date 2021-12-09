@@ -19,7 +19,6 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	if (this->getSigned() == false)
 	{
-		std::cout << "TEST" << std::endl;
 		throw PresidentialPardonForm::FormNotSigned();
 	}
 	else if (executor.getGrade() > this->getExecGrade())

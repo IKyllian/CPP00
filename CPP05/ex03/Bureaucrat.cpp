@@ -2,7 +2,10 @@
 
 Bureaucrat::Bureaucrat() : _name("undefined"), _grade(150) {}
 
-Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src._name), _grade(src._grade) {}
+Bureaucrat::Bureaucrat(const Bureaucrat &src)
+{
+	*this = src;
+}
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
@@ -15,7 +18,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &b)
 {
 	if (this == &b)
-		return (*this); // évite l'autoaffectation
+		return (*this);
 	_grade = b._grade;
 	return (*this);
 }
@@ -23,7 +26,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &b)
 void Bureaucrat::grade_increment()
 {
 	if (this->_grade > 1)
-		this->_grade--; // 2 devient 1 (1 grade le plus élevé)
+		this->_grade--;
 	else
 		throw Bureaucrat::GradeTooLowException();
 }
@@ -31,12 +34,12 @@ void Bureaucrat::grade_increment()
 void Bureaucrat::grade_decrement()
 {
 	if (this->_grade < 150)
-		this->_grade++; // 1 devient 2 (1 grade le plus élevé)
+		this->_grade++;
 	else
 		throw Bureaucrat::GradeTooHighException();
 }
 
-const std::string Bureaucrat::getName(void) const
+const std::string &Bureaucrat::getName(void) const
 {
 	return (this->_name);
 }

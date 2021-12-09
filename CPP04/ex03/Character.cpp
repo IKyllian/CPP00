@@ -8,7 +8,14 @@ Character::Character(std::string name) : _name(name)
 
 Character::Character(const Character& src)
 {
-	*this = src;
+	this->_name = src._name;
+	for(int i = 0; i < ARRAY_SIZE; i++)
+	{
+		if (src._inventory[i])
+			this->_inventory[i] = src._inventory[i]->clone();
+		else
+			this->_inventory[i] = NULL;
+	}
 }
 
 Character::~Character()
@@ -55,7 +62,7 @@ void Character::equip(AMateria *m)
 		if (this->_inventory[i] == NULL)
 		{
 			this->_inventory[i] = m;
-			break;
+			return ;
 		}
 		if (i == (ARRAY_SIZE - 1))
 			std::cout << "Inventory is full" << std::endl;

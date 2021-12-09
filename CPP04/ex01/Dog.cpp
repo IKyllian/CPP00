@@ -10,7 +10,10 @@ Dog::Dog()
 Dog::Dog(const Dog &src)
 {
 	std::cout << "Dog Copy Constructor" << std::endl;
-	*this = src;
+	this->_type = src._type;
+	this->_brain = new Brain();
+	for (int i = 0; i < TAB_SIZE; i++)
+		this->_brain->setIdeas(src._brain->getIdeas(i), i);
 }
 
 Dog::~Dog()

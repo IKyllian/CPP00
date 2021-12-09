@@ -8,6 +8,17 @@ MateriaSource::MateriaSource()
 		_m_stock[i] = NULL;
 }
 
+MateriaSource::MateriaSource(const MateriaSource& src)
+{
+	for(int i = 0; i < ARRAY_SIZE; i++)
+	{
+		if (src._m_stock[i])
+			this->_m_stock[i] = src._m_stock[i]->clone();
+		else
+			this->_m_stock[i] = NULL;
+	}
+}
+
 MateriaSource::~MateriaSource()
 {
 	for(int i = 0; i < ARRAY_SIZE; i++)
@@ -18,11 +29,6 @@ MateriaSource::~MateriaSource()
 			this->_m_stock[i] = NULL;
 		}
 	}
-}
-
-MateriaSource::MateriaSource(const MateriaSource& src)
-{
-	*this = src;
 }
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& src)
@@ -51,7 +57,7 @@ void MateriaSource::learnMateria(AMateria *materia)
 		if (this->_m_stock[i] == NULL)
 		{
 			this->_m_stock[i] = materia;
-			break;
+			return ;
 		}
 		if (i == (ARRAY_SIZE - 1))
 			std::cout << "Materia Inventory full" << std::endl;

@@ -13,7 +13,6 @@ int main()
 				tab[i] = new Dog();
 			else
 				tab[i] = new Cat();
-			tab[i]->getType();
 			tab[i]->makeSound();
 		}
 		for (int i = 0; i < 4; i++)

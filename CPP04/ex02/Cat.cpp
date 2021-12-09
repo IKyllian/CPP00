@@ -11,7 +11,10 @@ Cat::Cat()
 Cat::Cat(const Cat &src)
 {
 	std::cout << "Cat Copy Constructor" << std::endl;
-	*this = src;
+	this->_type = src._type;
+	this->_brain = new Brain();
+	for (int i = 0; i < TAB_SIZE; i++)
+		this->_brain->setIdeas(src._brain->getIdeas(i), i);
 }
 
 Cat::~Cat()

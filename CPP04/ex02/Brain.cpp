@@ -8,7 +8,8 @@ Brain::Brain()
 Brain::Brain(const Brain &src)
 {
 	std::cout << "Brain Copy Constructor" << std::endl;
-	*this = src;
+	for(int i = 0; i < TAB_SIZE; i++)
+		_ideas[i] = src._ideas[i];
 }
 
 Brain::~Brain()

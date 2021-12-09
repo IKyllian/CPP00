@@ -8,6 +8,7 @@ Cat::Cat()
 
 Cat::Cat(const Cat &src)
 {
+	std::cout << "Cat Copy Constructor" << std::endl;
 	*this = src;
 }
 

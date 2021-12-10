@@ -5,7 +5,7 @@ int main()
 {
 	try
 	{
-		Bureaucrat test("Bob", 120);
+		Bureaucrat test("Bob", 101);
 		Form form("form1", 100, 50);
 
 		test.signForm(form);
@@ -16,6 +16,7 @@ int main()
 		std::cout << test;
 		test.grade_decrement();
 		std::cout << test;
+		test.signForm(form);
 	}
 	catch(const std::exception& e)
 	{

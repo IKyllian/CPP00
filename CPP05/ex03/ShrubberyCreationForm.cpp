@@ -8,7 +8,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &s)
 	*this = s;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("Shruberry", target, 145, 137) {}
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("Shruberry Creation", target, 145, 137) {}
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &s)
 {
@@ -27,20 +27,27 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	else
 	{
 		file_name = getTarget() + "_shrubbery";
-		std::ofstream new_file(file_name);
-		if (new_file.fail())
-			std::cerr << "Error while create the file" << std::endl;
-		new_file << "          1          " << std::endl;
-		new_file << "         / \\         " << std::endl;
-		new_file << "        /   \\        " << std::endl;
-		new_file << "       /     \\       " << std::endl;
-		new_file << "      2       3      " << std::endl;
-		new_file << "     / \\     / \\     " << std::endl;
-		new_file << "    4   5   6   7    " << std::endl;
-		new_file << "   /   / \\     / \\   " << std::endl;
-		new_file << "  8   9   1   2   3  " << std::endl;
-		new_file << "     /               " << std::endl;
-		new_file << "    4                " << std::endl;
-		new_file.close();
+		std::ofstream new_file;
+		new_file.open(file_name, std::ios::out);
+		if (new_file)
+		{
+			for (int i = 0; i <= 1; i++)
+			{
+				new_file << "          1          " << std::endl;
+				new_file << "         / \\         " << std::endl;
+				new_file << "        /   \\        " << std::endl;
+				new_file << "       /     \\       " << std::endl;
+				new_file << "      2       3      " << std::endl;
+				new_file << "     / \\     / \\     " << std::endl;
+				new_file << "    4   5   6   7    " << std::endl;
+				new_file << "   /   / \\     / \\   " << std::endl;
+				new_file << "  8   9   1   2   3  " << std::endl;
+				new_file << "          \\ /       " << std::endl;
+				new_file << "           4       " << std::endl << std::endl;
+			}
+			new_file.close();
+		}
+		else
+			std::cerr << "Error : " << strerror(errno) << std::endl;
 	}	
 }

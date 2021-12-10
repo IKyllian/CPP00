@@ -6,12 +6,6 @@ Intern &Intern::operator=(const Intern &b)
 	return (*this);
 }
 
-std::string FormNames[3] = {
-	"robotomy request",
-	"shrubbery request",
-	"presidential request"
-};
-
 Form *presidential_f(std::string target)
 {
 	std::cout << "Intern creates Presidential form with target " << target << std::endl;
@@ -29,6 +23,12 @@ Form *shrubbery_f(std::string target)
 	std::cout << "Intern creates Shrubbery form with target " << target << std::endl;
 	return (new ShrubberyCreationForm(target));
 }
+
+std::string FormNames[3] = {
+	"robotomy request",
+	"shrubbery request",
+	"presidential request"
+};
 
 Form * (*functptr[])(std::string target) = { robotomy_f, shrubbery_f, presidential_f };
 

@@ -24,12 +24,12 @@ Form &Form::operator=(const Form &f)
 	return (*this);
 }
 
-std::string Form::getName(void) const
+const std::string &Form::getName(void) const
 {
 	return (_name);
 }
 
-std::string Form::getTarget(void) const
+const std::string &Form::getTarget(void) const
 {
 	return (_target);
 }

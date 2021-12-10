@@ -52,7 +52,7 @@ class Form
 		Form();
 		Form(const Form &form);
 		Form(std::string name, std::string target, int sign_grade, int exec_grade);
-		~Form() {};
+		virtual ~Form() {};
 
 		Form &operator=(const Form &f);
 

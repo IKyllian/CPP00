@@ -2,7 +2,7 @@
 
 Form::Form() : _name("undefined"), _signed(false), _sign_grade(1), _exec_grade(1) {}
 
-Form::Form(const Form &form) : _name(form._name), _signed(form._signed), _sign_grade(form._sign_grade), _exec_grade(form._exec_grade) {}
+Form::Form(const Form &form): _name(form._name), _signed(form._signed), _sign_grade(form._sign_grade), _exec_grade(form._exec_grade) {}
 
 Form::Form(std::string name, int sign_grade, int exec_grade) : _name(name), _signed(false), _sign_grade(sign_grade), _exec_grade(exec_grade)
 {
@@ -24,7 +24,7 @@ Form &Form::operator=(const Form &f)
 	return (*this);
 }
 
-std::string Form::getName(void) const
+const std::string &Form::getName(void) const
 {
 	return (_name);
 }

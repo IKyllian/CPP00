@@ -52,12 +52,12 @@ class Form
 		Form();
 		Form(const Form &form);
 		Form(std::string name, std::string target, int sign_grade, int exec_grade);
-		~Form() {};
+		virtual ~Form() {};
 
 		Form &operator=(const Form &f);
 
-		std::string getName(void) const;
-		std::string getTarget(void) const;
+		const std::string &getName(void) const;
+		const std::string &getTarget(void) const;
 		bool		getSigned(void) const;
 		int 		getSignGrade(void) const;
 		int			getExecGrade(void) const;

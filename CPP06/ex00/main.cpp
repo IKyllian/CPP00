@@ -8,20 +8,23 @@ int main(int argc, char **argv)
 {
 	double nbr;
 	std::string str;
+	int is_inf;
 
 	if (argc == 2)
 	{
-		
 		str = argv[1];
-		// is_inf = ((str == "inf" == 0) || str == "inff" == 0) || str == "+inff" == 0) || str == "inf" == 0) || str == "inf" == 0) || );
-		// if (str.length() != 1 && !(str[0] >= 48 && str[0] <= 57))
+		is_inf = ((str.compare(0, str.size(), "inf") == 0) || (str.compare("inff") == 0) || (str.compare("+inf") == 0)
+			|| (str.compare("+inff") == 0) || (str.compare("-inf") == 0) || (str.compare("+inff") == 0)
+			|| (str.compare("nan") == 0) || (str.compare("nanf") == 0)  || (str.compare("+nanf") == 0)
+			|| (str.compare("+nan") == 0)  || (str.compare("-nan") == 0)  || (str.compare("-nanf") == 0));
+		// if (!is_inf && str.length() != 1 && !((str[0] >= 48 && str[0] <= 57) || str[0] == '-' || str[0] == '+'))
 		// {
 		// 	std::cout << "Syntax Error" << std::endl;
 		// 	return (1);
 		// }
-		// if (str.length() == 1 && !((str[0] >= 0 && str[0] <= 32) || (str[0] >= 48 && str[0] <= 57)))
-		// 	nbr = static_cast<double>(argv[1][0]);
-		// else
+		if (str.length() == 1 && !((str[0] >= 0 && str[0] <= 32) || (str[0] >= 48 && str[0] <= 57)))
+			nbr = static_cast<double>(argv[1][0]);
+		else
 			nbr = atof(argv[1]);
 
 		// ********* To char *********
@@ -52,8 +55,9 @@ int main(int argc, char **argv)
 			std::cout << "double: " << d_nb << ".0" << std::endl;
 		else
 			std::cout << "double: " << d_nb << std::endl;
+		return (0);
 	}
 	else
 		std::cout << "Error : Argument" << std::endl;
-	return (0);
+	return (1);
 }

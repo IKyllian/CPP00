@@ -20,16 +20,14 @@ int main()
 	uintptr_t nbr;
 
 	data = new Data;
-	data->id = 0;
+	data->id = 4;
 
 	std::cout << "Data = " << data << std::endl;
 	nbr = serialize(data);
 	std::cout << "nbr = " << &nbr << std::endl;
 	data = deserialize(nbr);
 	std::cout << "Data = " << data << std::endl;
-	nbr = serialize(data);
-	std::cout << "nbr = " << &nbr << std::endl;
-
+	std::cout << "id = " << data->id << std::endl;
 	delete data;
 	return (0);
 }

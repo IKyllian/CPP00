@@ -3,50 +3,36 @@
 
 #include <iostream>
 
-// template <typename T>
-// class Array
-// {
-// 	public :
-
-// 		// class IndexException : public std::exception
-// 		// {
-// 		// 	public :
-
-// 		// 	IndexException () {};
-// 		// 	IndexException (const exception&);
-
-// 		// 	IndexException& operator= (const exception&);
-
-// 		// 	virtual ~IndexException() throw() {};
-// 		// 	virtual const char* what() const throw();
-// 		// };
-
-// 		Array();
-// 		Array(Array const &array);
-// 		Array(unsigned int n);
-// 		~Array();
-
-// 		Array &operator=(Array const &array);
-// 		T &operator[](size_t i);
-
-// 		int size(void) const;
-
-// 	private :
-
-// 		T		*_array;
-// 		size_t	_size;
-// };
-
-
 template <typename T>
 class Array
 {
 	public :
 		Array() : _array(NULL), _size(0) {};
-		Array(Array const &array) { *this = array ;};
+		Array(Array const &array) {
+			if (array.size() > 0)
+			{
+				this->_array = new T[array.size()];
+				for (size_t i = 0; i < array.size(); i++)
+					this->_array[i] = array._array[i];		
+				this->_size = array.size();
+			}
+			else
+			{
+				this->_array = NULL;
+				this->_size = 0;
+			}
+		};
 		Array(unsigned int n) {
-			_array = new T[n];
-			_size = n;
+			if (n > 0)
+			{
+				_array = new T[n];
+				_size = n;
+			}
+			else
+			{
+				_array = NULL;
+				_size = 0;
+			}
 		};
 		~Array() {
 			if (this->_array != NULL)
@@ -56,25 +42,54 @@ class Array
 		Array &operator=(Array const &array) {
 			if (this == &array)
 				return (*this);
-			if (this->_size != array._size)
+			if (array.size() > 0)
 			{
-				if (this->_array != NULL)
-					delete [] this->_array;
-				this->_array = new T[array._size];
-				this->_size = array._size;
+				if (this->_size != array.size())
+				{
+					if (this->_array != NULL)
+						delete [] this->_array;
+					this->_array = new T[array._size];
+					this->_size = array._size;
+				}
+				for (int i = 0; i < this->_size; i++)
+					this->_array[i] = array._array[i];
 			}
-			for (int i = 0; i < this->_size; i++)
-				this->_array[i] = array._array[i];
+			else
+			{
+				this->_array = NULL;
+				this->_size = 0;
+			}
 			return (*this);
 		};
-		T &operator[](size_t i) {
-			if (!this->_array || i < 0 || i > this->_size)
-				throw std::exception();
-			else
+
+		const T& operator[](size_t i) const {
+			try
+			{
+				if (!this->_array || i < 0 || i >= this->size())
+					throw(std::exception());
 				return (this->_array[i]);
+			}
+			catch(const std::exception& e)
+			{
+				std::cout << "Invalid Index" << std::endl;
+				return (*this->_array);
+			}
+		}
+		T &operator[](size_t i) {
+			try
+			{
+				if (!this->_array || i < 0 || i >= this->size())
+					throw(std::exception());
+				return (this->_array[i]);
+			}
+			catch(const std::exception& e)
+			{
+				std::cout << "Invalid Index" << std::endl;
+				return (*this->_array);
+			}
 		}
 
-		int size(void) const { return (_size); };
+		size_t size(void) const { return (this->_size); };
 
 	private :
 

@@ -16,6 +16,12 @@ int main(int argc, char **argv)
 			|| (str.compare("inff") == 0) || (str.compare("+inff") == 0) || (str.compare("-inff") == 0)
 			|| (str.compare("nan") == 0) || (str.compare("+nan") == 0)  || (str.compare("-nan") == 0)
 			|| (str.compare("nanf") == 0)  || (str.compare("+nanf") == 0)  || (str.compare("-nanf") == 0));
+		if (!is_inf && str.size() > 1 && ((!(str.at(0) == '+' || str.at(0) == '-') && !(str.at(0) >= 48 && str.at(0) <= 57))
+			|| ((str.at(0) == '+' || str.at(0) == '-') && !(str.at(1) >= 48 && str.at(1) <= 57))))
+		{
+			std::cout << "Syntax Error" << std::endl;
+			return (1);
+		}
 		if (str.length() == 1 && !((str[0] >= 0 && str[0] <= 32) || (str[0] >= 48 && str[0] <= 57)))
 			nbr = static_cast<double>(argv[1][0]);
 		else

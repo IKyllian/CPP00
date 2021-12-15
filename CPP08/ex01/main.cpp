@@ -79,6 +79,10 @@ int main()
 			std::cout << "Taille du tableau trop petit" << std::endl;
 		}
 	}
+	{
+		Span span(10000, -10000, 10000);
+		std::cout << "size " << span.getSize() << std::endl;
+	}
 
 	return (0);
 }

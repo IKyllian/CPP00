@@ -24,8 +24,7 @@ int main()
 		++it;
 	}
 
-	MutantStack<int> mstack2;
-	mstack2 = mstack;
+	MutantStack<int> mstack2(mstack);
 	mstack.push(42);
 	mstack.push(150);
 	mstack.push(942);

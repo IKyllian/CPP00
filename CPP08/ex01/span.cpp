@@ -38,19 +38,20 @@ void Span::addNumber(int number)
 
 int Span::shortestSpan() const
 {
-	iterator shortest;
+	int shortest;
 	std::vector<int> vect = _tab;
-	
+	std::sort(vect.begin(), vect.end());
+
 	if (this->_tab.size() > 1)
 	{
-		for (iterator it = vect.begin(); it != vect.end(); ++it)
-		{	
+		for (iterator it = vect.begin(); next(it) != vect.end(); ++it)
+		{
 			if (it == vect.begin())
-				shortest = it;
-			if (*it < *shortest)
-				shortest = it;
+				shortest = *next(it) - *it;;
+			if (*next(it) - *it < shortest)
+				shortest = *next(it) - *it;
 		}
-		return (*shortest);
+		return (shortest);
 	}
 	else
 		throw std::exception();
@@ -58,19 +59,13 @@ int Span::shortestSpan() const
 	
 int Span::longestSpan() const
 {
-	iterator longuest;
 	std::vector<int> vect = _tab;
-	
+
 	if (this->_tab.size() > 1)
 	{
-		for (iterator it = vect.begin(); it != vect.end(); ++it)
-		{
-			if (it == vect.begin())
-				longuest = it;
-			if (*it > *longuest)
-				longuest = it;
-		}
-		return (*longuest);
+		int min = *(std::min_element(vect.begin(), vect.end()));
+		int max = *(std::max_element(vect.begin(), vect.end()));	
+		return (max - min);
 	}
 	else
 		throw std::exception();
@@ -80,4 +75,9 @@ void Span::printTab()
 {
 	for (iterator it = this->_tab.begin(); it != this->_tab.end(); ++it)
 		std::cout << *it << std::endl;
+}
+
+int Span::getSize() const
+{
+	return (this->_tab.size());
 }

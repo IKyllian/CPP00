@@ -21,6 +21,7 @@ class Span
 		int longestSpan() const;
 
 		void printTab();
+		int getSize() const;
 
 	private :
 		unsigned int _size;

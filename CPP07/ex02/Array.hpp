@@ -56,6 +56,8 @@ class Array
 			}
 			else
 			{
+				if (this->_array != NULL)
+						delete [] this->_array;
 				this->_array = NULL;
 				this->_size = 0;
 			}

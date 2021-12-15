@@ -28,14 +28,32 @@ void Span::addNumber(int number)
 		throw std::exception();
 }
 
+void Span::addMultipleNumbers(iterator begin, iterator end, int min, int max)
+{
+	std::vector<int> vect = _tab;
+	iterator it = vect.begin();
+	int nbr;
+	for (; it != vect.end(); ++it)
+	{
+		std::cout << "Test" << std::endl;
+		if (*it == *begin)
+			break;
+	}
+	for (; it != end; it++)
+	{
+		nbr = min + ( std::rand() % ( max - min + 1 ) );
+		this->_tab.insert(it, nbr);
+	}
+}
+
 int Span::shortestSpan() const
 {
-	std::vector<int>::iterator shortest;
+	iterator shortest;
 	std::vector<int> vect = _tab;
 	
 	if (this->_tab.size() > 1)
 	{
-		for (std::vector<int>::iterator it = vect.begin(); it != vect.end(); ++it)
+		for (iterator it = vect.begin(); it != vect.end(); ++it)
 		{	
 			if (it == vect.begin())
 				shortest = it;
@@ -50,12 +68,12 @@ int Span::shortestSpan() const
 	
 int Span::longestSpan() const
 {
-	std::vector<int>::iterator longuest;
+	iterator longuest;
 	std::vector<int> vect = _tab;
 	
 	if (this->_tab.size() > 1)
 	{
-		for (std::vector<int>::iterator it = vect.begin(); it != vect.end(); ++it)
+		for (iterator it = vect.begin(); it != vect.end(); ++it)
 		{
 			if (it == vect.begin())
 				longuest = it;

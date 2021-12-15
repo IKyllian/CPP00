@@ -10,20 +10,21 @@ class Span
 	public :
 		Span() {};
 		Span(unsigned int size);
+		Span(unsigned int size, int min, int max);
 		Span(const Span &src);
 		~Span() {};
 
 		Span &operator=(const Span &src);
 
 		void addNumber(int number);
-		void addMultipleNumbers(iterator it, iterator it2, int min, int max);
 		int shortestSpan() const;
 		int longestSpan() const;
-		
-		std::vector<int> _tab;
+
+		void printTab();
+
 	private :
 		unsigned int _size;
-		// std::vector<int> _tab;
+		std::vector<int> _tab;
 };
 
 #endif

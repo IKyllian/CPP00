@@ -5,7 +5,7 @@
 #include <vector>
 
 template <typename T>
-void easyfind(T container, int nbr)
+void easyFind(T container, int nbr)
 {
     typename T::iterator it;
 
@@ -13,12 +13,11 @@ void easyfind(T container, int nbr)
     {
         if (*it == nbr)
         {
-            std::cout << *it << std::endl;
+            std::cout << "Occurrence found -> " << *it << std::endl;
             return ;
         }
     }
     throw std::exception();
-    // std::cout << "No occurrence found" << std::endl;
 }
 
 #endif

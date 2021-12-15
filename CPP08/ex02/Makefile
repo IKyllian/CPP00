@@ -3,12 +3,11 @@ NAME = template
 HEADER = mutantstack.hpp
 
 SRCS =	main.cpp \
-		mutantstack.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 CLANG = clang++
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
 %.o : %.cpp $(HEADER)

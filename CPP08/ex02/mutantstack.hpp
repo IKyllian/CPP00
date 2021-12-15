@@ -2,6 +2,7 @@
 #define MUTANTSTACK_HPP
 
 #include <iostream>
+#include <stack>
 
 template <typename T>
 class MutantStack : public std::stack<T>
@@ -18,9 +19,10 @@ class MutantStack : public std::stack<T>
 			(void)rhs;
 			return *this;
 		}
+		typedef typename std::stack<T>::container_type::iterator iterator;
 
-		std::stack<T>::iterator 	begin(void)
-		std::stack<T>::iterator 	end(void)
+		iterator 	begin(void) { return this->c.begin(); };
+		iterator 	end(void) { return this->c.end(); };
 };
 
 #endif

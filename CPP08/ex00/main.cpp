@@ -6,14 +6,14 @@ int main()
 	for (int i = 10; i >= 0; i--)
 		tab.push_back(i);
 	try {
-		easyfind(tab, 0);
-		easyfind(tab, 11);
+		easyFind(tab, 0);
+		easyFind(tab, 11);
 	} catch (std::exception &what){
 		std::cout << "No occurrence found" << std::endl;
 	}
 	try {
-		easyfind(tab, 10);
-		easyfind(tab, -1);
+		easyFind(tab, 10);
+		easyFind(tab, -1);
 	} catch (std::exception &what){
 		std::cout << "No occurrence found" << std::endl;
 	}
